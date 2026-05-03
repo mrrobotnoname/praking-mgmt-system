@@ -1,0 +1,1317 @@
+2026-05-01 22:35:53,137 [MainProcess] INFO: Starting Parking Management System... 
+2026-05-01 22:35:53,152 [MainProcess] INFO: APIProcess started (PID: 10113)
+2026-05-01 22:35:53,156 [MainProcess] INFO: CamaraProcess started (PID: 10114)
+2026-05-01 22:35:53,161 [MainProcess] INFO: DetectorProcess started (PID: 10115)
+2026-05-01 22:35:53,162 [MainProcess] INFO: All processes running.
+2026-05-01 22:35:53,163 [MainProcess] INFO: Frontend: run 'npm run dev' in /frontend
+2026-05-01 22:35:53,163 [MainProcess] INFO: API:      http://localhost:8000
+2026-05-01 22:35:53,163 [MainProcess] INFO: API Docs: http://localhost:8000/docs
+2026-05-01 22:35:53,166 [DetectorProcess] INFO: Detector process started
+2026-05-01 22:35:53,368 [CamaraProcess] INFO: Camera process started
+2026-05-01 22:35:53,369 [CamaraProcess] INFO: Connecting to camera source: tests/test_videos/test.mp4
+2026-05-01 22:35:54,321 [CamaraProcess] INFO: Camera connected successfully
+2026-05-01 22:35:54,322 [CamaraProcess] INFO: Source type   : video
+Frame interval: 0.5s (~2 frames checked/sec)
+2026-05-01 22:35:54,652 [APIProcess] INFO: API Starting..
+2026-05-01 22:36:11,029 [DetectorProcess] INFO: Loading model: /home/dilshan/Desktop/praking-mgmt-system/backend/best_openvino_model
+2026-05-01 22:36:11,029 [DetectorProcess] INFO: Device      : CPU
+2026-05-01 22:36:11,088 [DetectorProcess] INFO: YOLO OpenVINO model loaded successfully
+2026-05-01 22:36:11,089 [DetectorProcess] INFO: Detector ready | state: DETECTING | cooldown: 30s
+2026-05-01 22:36:30,670 [CamaraProcess] INFO: frame skiped
+2026-05-01 22:36:35,797 [CamaraProcess] INFO: frame skiped
+2026-05-01 22:36:44,461 [CamaraProcess] INFO: frame skiped
+2026-05-01 22:36:46,135 [DetectorProcess] INFO: Plate region detected — confidence: 0.80
+2026-05-01 22:36:49,280 [DetectorProcess] INFO: Initializing EasyOCR (CPU mode)...
+2026-05-01 22:36:49,281 [DetectorProcess] WARNING: Using CPU. Note: This module is much faster with a GPU.
+2026-05-01 22:36:52,208 [CamaraProcess] INFO: Video file ended — looping back to start
+2026-05-01 22:37:02,241 [DetectorProcess] INFO: EasyOCR ready
+2026-05-01 22:37:28,222 [MainProcess] WARNING: Detector crashed — retrying...
+2026-05-01 22:37:28,264 [MainProcess] INFO: DetectorProcess zombie cleaned up
+2026-05-01 22:37:28,357 [MainProcess] INFO: DetectorProcess started (PID: 10407)
+2026-05-01 22:37:28,377 [DetectorProcess] INFO: Detector process started
+2026-05-01 22:37:42,607 [CamaraProcess] INFO: Video file ended — looping back to start
+2026-05-01 22:37:49,306 [DetectorProcess] INFO: Loading model: /home/dilshan/Desktop/praking-mgmt-system/backend/best_openvino_model
+2026-05-01 22:37:49,307 [DetectorProcess] INFO: Device      : CPU
+2026-05-01 22:37:49,388 [DetectorProcess] INFO: YOLO OpenVINO model loaded successfully
+2026-05-01 22:37:49,390 [DetectorProcess] INFO: Detector ready | state: DETECTING | cooldown: 30s
+2026-05-01 22:37:49,763 [CamaraProcess] INFO: frame skiped
+2026-05-01 22:38:04,725 [CamaraProcess] INFO: frame skiped
+2026-05-01 22:38:07,489 [CamaraProcess] INFO: frame skiped
+2026-05-01 22:38:10,782 [CamaraProcess] INFO: frame skiped
+2026-05-01 22:38:13,629 [CamaraProcess] INFO: frame skiped
+2026-05-01 22:38:17,056 [CamaraProcess] INFO: frame skiped
+2026-05-01 22:38:27,589 [CamaraProcess] INFO: frame skiped
+2026-05-01 22:38:31,063 [CamaraProcess] INFO: frame skiped
+2026-05-01 22:38:33,876 [CamaraProcess] INFO: frame skiped
+2026-05-01 22:38:39,020 [DetectorProcess] INFO: Plate region detected — confidence: 0.82
+2026-05-01 22:38:42,425 [DetectorProcess] INFO: Initializing EasyOCR (CPU mode)...
+2026-05-01 22:38:42,426 [DetectorProcess] WARNING: Using CPU. Note: This module is much faster with a GPU.
+2026-05-01 22:38:46,198 [CamaraProcess] INFO: Video file ended — looping back to start
+2026-05-01 22:38:55,967 [DetectorProcess] INFO: EasyOCR ready
+2026-05-01 22:39:18,373 [MainProcess] WARNING: Detector crashed — retrying...
+2026-05-01 22:39:18,374 [MainProcess] INFO: DetectorProcess zombie cleaned up
+2026-05-01 22:39:18,378 [MainProcess] INFO: DetectorProcess started (PID: 10833)
+2026-05-01 22:39:18,498 [DetectorProcess] INFO: Detector process started
+2026-05-01 22:39:22,685 [MainProcess] INFO: Shutdown signal received (Ctrl+C)
+2026-05-01 22:39:22,685 [MainProcess] INFO: Shutting down...
+2026-05-01 22:39:22,686 [MainProcess] INFO: Stopping CameraProcess...
+2026-05-01 22:39:22,724 [MainProcess] INFO: CameraProcess stopped
+2026-05-01 22:39:22,725 [MainProcess] INFO: Stopping DetectorProcess...
+2026-05-01 22:39:22,744 [MainProcess] INFO: DetectorProcess stopped
+2026-05-01 22:39:22,744 [MainProcess] INFO: Stopping APIProcess...
+2026-05-01 22:39:23,993 [APIProcess] INFO: FastAPI shutting down
+2026-05-01 22:39:24,004 [APIProcess] INFO: API shutdown complete
+2026-05-01 22:39:24,050 [MainProcess] INFO: APIProcess stopped
+2026-05-01 22:39:24,051 [MainProcess] INFO: System shut down
+2026-05-01 22:45:06,328 [MainProcess] INFO: Starting Parking Management System... 
+2026-05-01 22:45:06,355 [MainProcess] INFO: APIProcess started (PID: 11463)
+2026-05-01 22:45:06,365 [MainProcess] INFO: CamaraProcess started (PID: 11464)
+2026-05-01 22:45:06,371 [MainProcess] INFO: DetectorProcess started (PID: 11465)
+2026-05-01 22:45:06,375 [MainProcess] INFO: All processes running.
+2026-05-01 22:45:06,375 [MainProcess] INFO: Frontend: run 'npm run dev' in /frontend
+2026-05-01 22:45:06,376 [MainProcess] INFO: API:      http://localhost:8000
+2026-05-01 22:45:06,376 [MainProcess] INFO: API Docs: http://localhost:8000/docs
+2026-05-01 22:45:07,240 [APIProcess] INFO: API Starting..
+2026-05-01 22:45:07,306 [CamaraProcess] INFO: Camera process started
+2026-05-01 22:45:07,307 [CamaraProcess] INFO: Connecting to camera source: tests/test_videos/test.mp4
+2026-05-01 22:45:07,639 [CamaraProcess] INFO: Camera connected successfully
+2026-05-01 22:45:07,639 [CamaraProcess] INFO: Source type   : video
+Frame interval: 0.5s (~2 frames checked/sec)
+2026-05-01 22:45:07,847 [DetectorProcess] INFO: Detector process started
+2026-05-01 22:45:31,147 [DetectorProcess] INFO: Loading model: /home/dilshan/Desktop/praking-mgmt-system/backend/best_openvino_model
+2026-05-01 22:45:31,148 [DetectorProcess] INFO: Device      : CPU
+2026-05-01 22:45:31,196 [DetectorProcess] INFO: YOLO OpenVINO model loaded successfully
+2026-05-01 22:45:31,201 [DetectorProcess] INFO: Detector ready | state: DETECTING | cooldown: 30s
+2026-05-01 22:45:38,981 [CamaraProcess] INFO: frame skiped
+2026-05-01 22:46:03,242 [DetectorProcess] INFO: Plate region detected — confidence: 0.82
+2026-05-01 22:46:09,563 [CamaraProcess] INFO: Video file ended — looping back to start
+2026-05-01 22:47:01,085 [CamaraProcess] INFO: Video file ended — looping back to start
+2026-05-01 22:47:02,030 [DetectorProcess] INFO: Initializing EasyOCR (CPU mode)...
+2026-05-01 22:47:02,032 [DetectorProcess] WARNING: Using CPU. Note: This module is much faster with a GPU.
+2026-05-01 22:47:13,830 [DetectorProcess] INFO: EasyOCR ready
+2026-05-01 22:47:42,411 [DetectorProcess] ERROR: OCR error: 'Reader' object has no attribute 'recognizer'
+2026-05-01 22:47:42,412 [DetectorProcess] INFO: 
+2026-05-01 22:47:42,412 [DetectorProcess] WARNING: OCR returned empty text — skipping frame
+2026-05-01 22:47:51,499 [DetectorProcess] INFO: Plate region detected — confidence: 0.82
+2026-05-01 22:47:59,313 [CamaraProcess] INFO: Video file ended — looping back to start
+2026-05-01 22:48:08,468 [DetectorProcess] ERROR: OCR error: 'Reader' object has no attribute 'recognizer'
+2026-05-01 22:48:08,468 [DetectorProcess] INFO: 
+2026-05-01 22:48:08,469 [DetectorProcess] WARNING: OCR returned empty text — skipping frame
+2026-05-01 22:48:24,346 [CamaraProcess] INFO: frame skiped
+2026-05-01 22:48:39,723 [CamaraProcess] INFO: frame skiped
+2026-05-01 22:48:45,854 [CamaraProcess] INFO: frame skiped
+2026-05-01 22:48:47,110 [CamaraProcess] INFO: frame skiped
+2026-05-01 22:48:49,070 [CamaraProcess] INFO: frame skiped
+2026-05-01 22:49:00,019 [DetectorProcess] INFO: Plate region detected — confidence: 0.76
+2026-05-01 22:49:06,837 [CamaraProcess] INFO: Video file ended — looping back to start
+2026-05-01 22:49:54,703 [CamaraProcess] INFO: Video file ended — looping back to start
+2026-05-01 22:49:58,843 [DetectorProcess] ERROR: OCR error: 'Reader' object has no attribute 'recognizer'
+2026-05-01 22:49:58,844 [DetectorProcess] INFO: 
+2026-05-01 22:49:58,845 [DetectorProcess] WARNING: OCR returned empty text — skipping frame
+2026-05-01 22:49:58,858 [CamaraProcess] INFO: frame skiped
+2026-05-01 22:50:03,986 [CamaraProcess] INFO: frame skiped
+2026-05-01 22:50:21,287 [CamaraProcess] INFO: frame skiped
+2026-05-01 22:50:55,702 [DetectorProcess] INFO: Plate region detected — confidence: 0.76
+2026-05-01 22:51:03,048 [CamaraProcess] INFO: Video file ended — looping back to start
+2026-05-01 22:51:04,864 [DetectorProcess] ERROR: OCR error: 'Reader' object has no attribute 'recognizer'
+2026-05-01 22:51:04,864 [DetectorProcess] INFO: 
+2026-05-01 22:51:04,865 [DetectorProcess] WARNING: OCR returned empty text — skipping frame
+2026-05-01 22:51:56,654 [CamaraProcess] INFO: frame skiped
+2026-05-01 22:52:05,378 [DetectorProcess] INFO: Plate region detected — confidence: 0.76
+2026-05-01 22:52:10,362 [DetectorProcess] ERROR: OCR error: 'Reader' object has no attribute 'recognizer'
+2026-05-01 22:52:10,364 [DetectorProcess] INFO: 
+2026-05-01 22:52:10,365 [DetectorProcess] WARNING: OCR returned empty text — skipping frame
+2026-05-01 22:52:11,366 [DetectorProcess] INFO: Plate region detected — confidence: 0.82
+2026-05-01 22:52:14,591 [DetectorProcess] ERROR: OCR error: 'Reader' object has no attribute 'recognizer'
+2026-05-01 22:52:14,592 [DetectorProcess] INFO: 
+2026-05-01 22:52:14,592 [DetectorProcess] WARNING: OCR returned empty text — skipping frame
+2026-05-01 22:52:15,679 [CamaraProcess] INFO: Video file ended — looping back to start
+2026-05-01 22:52:36,276 [CamaraProcess] INFO: frame skiped
+2026-05-01 22:52:52,468 [CamaraProcess] INFO: frame skiped
+2026-05-01 22:53:01,956 [CamaraProcess] INFO: frame skiped
+2026-05-01 22:53:15,357 [DetectorProcess] INFO: Plate region detected — confidence: 0.76
+2026-05-01 22:53:18,033 [DetectorProcess] ERROR: OCR error: 'Reader' object has no attribute 'recognizer'
+2026-05-01 22:53:18,034 [DetectorProcess] INFO: 
+2026-05-01 22:53:18,034 [DetectorProcess] WARNING: OCR returned empty text — skipping frame
+2026-05-01 22:53:18,667 [DetectorProcess] INFO: Plate region detected — confidence: 0.79
+2026-05-01 22:53:21,569 [DetectorProcess] ERROR: OCR error: 'Reader' object has no attribute 'recognizer'
+2026-05-01 22:53:21,570 [DetectorProcess] INFO: 
+2026-05-01 22:53:21,570 [DetectorProcess] WARNING: OCR returned empty text — skipping frame
+2026-05-01 22:53:23,306 [CamaraProcess] INFO: Video file ended — looping back to start
+2026-05-01 22:53:26,075 [MainProcess] INFO: Shutdown signal received (Ctrl+C)
+2026-05-01 22:53:26,096 [MainProcess] INFO: Shutting down...
+2026-05-01 22:53:26,096 [MainProcess] INFO: Stopping CameraProcess...
+2026-05-01 22:53:26,192 [MainProcess] INFO: CameraProcess stopped
+2026-05-01 22:53:26,193 [MainProcess] INFO: Stopping DetectorProcess...
+2026-05-01 22:53:26,281 [MainProcess] INFO: DetectorProcess stopped
+2026-05-01 22:53:26,281 [MainProcess] INFO: Stopping APIProcess...
+2026-05-01 22:53:26,314 [APIProcess] INFO: FastAPI shutting down
+2026-05-01 22:53:26,319 [APIProcess] INFO: API shutdown complete
+2026-05-01 22:53:26,347 [MainProcess] INFO: APIProcess stopped
+2026-05-01 22:53:26,349 [MainProcess] INFO: System shut down
+2026-05-02 00:22:17,008 [MainProcess] INFO: Starting Parking Management System... 
+2026-05-02 00:22:17,019 [MainProcess] INFO: APIProcess started (PID: 14797)
+2026-05-02 00:22:17,022 [MainProcess] INFO: CamaraProcess started (PID: 14798)
+2026-05-02 00:22:17,026 [MainProcess] INFO: DetectorProcess started (PID: 14799)
+2026-05-02 00:22:17,027 [MainProcess] INFO: All processes running.
+2026-05-02 00:22:17,028 [MainProcess] INFO: Frontend: run 'npm run dev' in /frontend
+2026-05-02 00:22:17,028 [MainProcess] INFO: API:      http://localhost:8000
+2026-05-02 00:22:17,028 [MainProcess] INFO: API Docs: http://localhost:8000/docs
+2026-05-02 00:22:17,029 [DetectorProcess] INFO: Detector process started
+2026-05-02 00:22:17,086 [CamaraProcess] INFO: Camera process started
+2026-05-02 00:22:17,087 [CamaraProcess] INFO: Connecting to camera source: tests/test_videos/test.mp4
+2026-05-02 00:22:18,006 [CamaraProcess] INFO: Camera connected successfully
+2026-05-02 00:22:18,006 [CamaraProcess] INFO: Source type   : video
+Frame interval: 0.5s (~2 frames checked/sec)
+2026-05-02 00:22:18,659 [APIProcess] INFO: API Starting..
+2026-05-02 00:22:22,032 [MainProcess] INFO: Shutdown signal received (Ctrl+C)
+2026-05-02 00:22:22,033 [MainProcess] INFO: Shutting down...
+2026-05-02 00:22:22,033 [MainProcess] INFO: Stopping CameraProcess...
+2026-05-02 00:22:22,064 [MainProcess] INFO: CameraProcess stopped
+2026-05-02 00:22:22,065 [MainProcess] INFO: Stopping DetectorProcess...
+2026-05-02 00:22:22,081 [MainProcess] INFO: DetectorProcess stopped
+2026-05-02 00:22:22,081 [MainProcess] INFO: Stopping APIProcess...
+2026-05-02 00:22:22,193 [APIProcess] INFO: FastAPI shutting down
+2026-05-02 00:22:22,194 [APIProcess] INFO: API shutdown complete
+2026-05-02 00:22:22,202 [MainProcess] INFO: APIProcess stopped
+2026-05-02 00:22:22,203 [MainProcess] INFO: System shut down
+2026-05-02 00:22:27,094 [MainProcess] INFO: Starting Parking Management System... 
+2026-05-02 00:22:27,103 [MainProcess] INFO: APIProcess started (PID: 14885)
+2026-05-02 00:22:27,108 [MainProcess] INFO: CamaraProcess started (PID: 14886)
+2026-05-02 00:22:27,115 [MainProcess] INFO: DetectorProcess started (PID: 14887)
+2026-05-02 00:22:27,115 [MainProcess] INFO: All processes running.
+2026-05-02 00:22:27,116 [MainProcess] INFO: Frontend: run 'npm run dev' in /frontend
+2026-05-02 00:22:27,116 [MainProcess] INFO: API:      http://localhost:8000
+2026-05-02 00:22:27,116 [MainProcess] INFO: API Docs: http://localhost:8000/docs
+2026-05-02 00:22:27,119 [DetectorProcess] INFO: Detector process started
+2026-05-02 00:22:27,165 [CamaraProcess] INFO: Camera process started
+2026-05-02 00:22:27,165 [CamaraProcess] INFO: Connecting to camera source: tests/test_videos/test.mp4
+2026-05-02 00:22:27,200 [CamaraProcess] INFO: Camera connected successfully
+2026-05-02 00:22:27,200 [CamaraProcess] INFO: Source type   : video
+Frame interval: 0.5s (~2 frames checked/sec)
+2026-05-02 00:22:27,399 [APIProcess] INFO: API Starting..
+2026-05-02 00:22:28,500 [MainProcess] INFO: Shutdown signal received (Ctrl+C)
+2026-05-02 00:22:28,500 [MainProcess] INFO: Shutting down...
+2026-05-02 00:22:28,501 [MainProcess] INFO: Stopping CameraProcess...
+2026-05-02 00:22:28,535 [MainProcess] INFO: CameraProcess stopped
+2026-05-02 00:22:28,536 [MainProcess] INFO: Stopping DetectorProcess...
+2026-05-02 00:22:28,558 [MainProcess] INFO: DetectorProcess stopped
+2026-05-02 00:22:28,558 [MainProcess] INFO: Stopping APIProcess...
+2026-05-02 00:22:28,608 [APIProcess] INFO: FastAPI shutting down
+2026-05-02 00:22:28,609 [APIProcess] INFO: API shutdown complete
+2026-05-02 00:22:28,617 [MainProcess] INFO: APIProcess stopped
+2026-05-02 00:22:28,618 [MainProcess] INFO: System shut down
+2026-05-02 00:22:55,956 [MainProcess] INFO: Starting Parking Management System... 
+2026-05-02 00:22:55,978 [MainProcess] INFO: APIProcess started (PID: 15173)
+2026-05-02 00:22:55,985 [MainProcess] INFO: CamaraProcess started (PID: 15174)
+2026-05-02 00:22:55,991 [MainProcess] INFO: DetectorProcess started (PID: 15176)
+2026-05-02 00:22:55,994 [MainProcess] INFO: All processes running.
+2026-05-02 00:22:55,997 [MainProcess] INFO: Frontend: run 'npm run dev' in /frontend
+2026-05-02 00:22:55,997 [MainProcess] INFO: API:      http://localhost:8000
+2026-05-02 00:22:55,998 [MainProcess] INFO: API Docs: http://localhost:8000/docs
+2026-05-02 00:22:56,514 [APIProcess] INFO: API Starting..
+2026-05-02 00:22:56,870 [CamaraProcess] INFO: Camera process started
+2026-05-02 00:22:56,870 [CamaraProcess] INFO: Connecting to camera source: tests/test_videos/test.mp4
+2026-05-02 00:22:56,880 [CamaraProcess] INFO: Camera connected successfully
+2026-05-02 00:22:56,880 [CamaraProcess] INFO: Source type   : video
+Frame interval: 0.5s (~2 frames checked/sec)
+2026-05-02 00:22:57,451 [DetectorProcess] INFO: Detector process started
+2026-05-02 00:23:25,088 [DetectorProcess] INFO: Loading model: /home/dilshan/Desktop/praking-mgmt-system/backend/best_openvino_model
+2026-05-02 00:23:25,089 [DetectorProcess] INFO: Device      : CPU
+2026-05-02 00:23:25,164 [DetectorProcess] INFO: YOLO OpenVINO model loaded successfully
+2026-05-02 00:23:25,167 [DetectorProcess] INFO: Detector ready | state: DETECTING | cooldown: 30s
+2026-05-02 00:23:36,508 [CamaraProcess] INFO: frame skiped
+2026-05-02 00:23:46,045 [DetectorProcess] INFO: Plate region detected — confidence: 0.82
+2026-05-02 00:23:52,871 [CamaraProcess] INFO: Video file ended — looping back to start
+2026-05-02 00:24:14,088 [DetectorProcess] INFO: Initializing EasyOCR (CPU mode)...
+2026-05-02 00:24:14,102 [DetectorProcess] WARNING: Using CPU. Note: This module is much faster with a GPU.
+2026-05-02 00:24:31,266 [DetectorProcess] INFO: EasyOCR ready
+2026-05-02 00:24:46,402 [CamaraProcess] INFO: Video file ended — looping back to start
+2026-05-02 00:25:33,992 [CamaraProcess] INFO: Video file ended — looping back to start
+2026-05-02 00:26:18,417 [CamaraProcess] INFO: Video file ended — looping back to start
+2026-05-02 00:27:14,987 [CamaraProcess] INFO: Video file ended — looping back to start
+2026-05-02 00:27:16,133 [MainProcess] WARNING: Detector crashed — retrying...
+2026-05-02 00:27:16,352 [MainProcess] INFO: DetectorProcess zombie cleaned up
+2026-05-02 00:27:16,418 [MainProcess] INFO: DetectorProcess started (PID: 15789)
+2026-05-02 00:27:17,479 [DetectorProcess] INFO: Detector process started
+2026-05-02 00:27:24,940 [MainProcess] INFO: Shutdown signal received (Ctrl+C)
+2026-05-02 00:27:24,940 [MainProcess] INFO: Shutting down...
+2026-05-02 00:27:24,940 [MainProcess] INFO: Stopping CameraProcess...
+2026-05-02 00:27:25,006 [MainProcess] INFO: CameraProcess stopped
+2026-05-02 00:27:25,006 [MainProcess] INFO: Stopping DetectorProcess...
+2026-05-02 00:27:25,009 [MainProcess] INFO: DetectorProcess stopped
+2026-05-02 00:27:25,009 [MainProcess] INFO: Stopping APIProcess...
+2026-05-02 00:27:25,187 [APIProcess] INFO: FastAPI shutting down
+2026-05-02 00:27:25,192 [APIProcess] INFO: API shutdown complete
+2026-05-02 00:27:25,227 [MainProcess] INFO: APIProcess stopped
+2026-05-02 00:27:25,228 [MainProcess] INFO: System shut down
+2026-05-02 00:32:34,444 [MainProcess] INFO: Starting Parking Management System... 
+2026-05-02 00:32:34,463 [MainProcess] INFO: APIProcess started (PID: 16277)
+2026-05-02 00:32:34,469 [MainProcess] INFO: CamaraProcess started (PID: 16278)
+2026-05-02 00:32:34,483 [MainProcess] INFO: DetectorProcess started (PID: 16280)
+2026-05-02 00:32:34,484 [MainProcess] INFO: All processes running.
+2026-05-02 00:32:34,485 [MainProcess] INFO: Frontend: run 'npm run dev' in /frontend
+2026-05-02 00:32:34,485 [MainProcess] INFO: API:      http://localhost:8000
+2026-05-02 00:32:34,485 [MainProcess] INFO: API Docs: http://localhost:8000/docs
+2026-05-02 00:32:35,358 [APIProcess] INFO: API Starting..
+2026-05-02 00:32:35,772 [CamaraProcess] INFO: Camera process started
+2026-05-02 00:32:35,773 [CamaraProcess] INFO: Connecting to camera source: tests/test_videos/test.mp4
+2026-05-02 00:32:35,783 [CamaraProcess] INFO: Camera connected successfully
+2026-05-02 00:32:35,784 [CamaraProcess] INFO: Source type   : video
+Frame interval: 0.5s (~2 frames checked/sec)
+2026-05-02 00:32:36,114 [DetectorProcess] INFO: Detector process started
+2026-05-02 00:32:56,748 [DetectorProcess] INFO: Loading model: /home/dilshan/Desktop/praking-mgmt-system/backend/best_openvino_model
+2026-05-02 00:32:56,749 [DetectorProcess] INFO: Device      : CPU
+2026-05-02 00:32:56,820 [DetectorProcess] INFO: YOLO OpenVINO model loaded successfully
+2026-05-02 00:32:56,825 [DetectorProcess] INFO: Detector ready | state: DETECTING | cooldown: 30s
+2026-05-02 00:33:01,725 [CamaraProcess] INFO: frame skiped
+2026-05-02 00:33:09,815 [CamaraProcess] INFO: frame skiped
+2026-05-02 00:33:15,406 [CamaraProcess] INFO: frame skiped
+2026-05-02 00:33:29,381 [CamaraProcess] INFO: frame skiped
+2026-05-02 00:33:29,974 [DetectorProcess] INFO: Plate region detected — confidence: 0.82
+2026-05-02 00:33:36,612 [CamaraProcess] INFO: Video file ended — looping back to start
+2026-05-02 00:33:55,169 [DetectorProcess] INFO: Initializing EasyOCR (CPU mode)...
+2026-05-02 00:33:55,172 [DetectorProcess] WARNING: Using CPU. Note: This module is much faster with a GPU.
+2026-05-02 00:34:11,613 [DetectorProcess] INFO: EasyOCR ready
+2026-05-02 00:34:34,593 [CamaraProcess] INFO: Video file ended — looping back to start
+2026-05-02 00:34:48,930 [CamaraProcess] INFO: Camera process interrupted
+2026-05-02 00:34:49,224 [CamaraProcess] INFO: Camera released. Camera process stopped.
+2026-05-02 00:34:49,089 [MainProcess] INFO: Shutdown signal received (Ctrl+C)
+2026-05-02 00:34:49,355 [MainProcess] INFO: Shutting down...
+2026-05-02 00:34:49,418 [MainProcess] INFO: Stopping CameraProcess...
+2026-05-02 00:34:49,572 [MainProcess] INFO: CameraProcess stopped
+2026-05-02 00:34:49,573 [MainProcess] INFO: Stopping DetectorProcess...
+2026-05-02 00:34:50,081 [APIProcess] INFO: FastAPI shutting down
+2026-05-02 00:34:50,097 [APIProcess] INFO: API shutdown complete
+2026-05-02 00:34:54,688 [MainProcess] INFO: DetectorProcess stopped
+2026-05-02 00:34:54,688 [MainProcess] INFO: APIProcess zombie cleaned up
+2026-05-02 00:34:54,688 [MainProcess] INFO: System shut down
+2026-05-02 00:36:20,577 [MainProcess] INFO: Starting Parking Management System... 
+2026-05-02 00:36:20,612 [MainProcess] INFO: APIProcess started (PID: 16975)
+2026-05-02 00:36:20,622 [MainProcess] INFO: CamaraProcess started (PID: 16976)
+2026-05-02 00:36:20,637 [MainProcess] INFO: DetectorProcess started (PID: 16980)
+2026-05-02 00:36:20,640 [MainProcess] INFO: All processes running.
+2026-05-02 00:36:20,640 [MainProcess] INFO: Frontend: run 'npm run dev' in /frontend
+2026-05-02 00:36:20,640 [MainProcess] INFO: API:      http://localhost:8000
+2026-05-02 00:36:20,640 [MainProcess] INFO: API Docs: http://localhost:8000/docs
+2026-05-02 00:36:21,434 [APIProcess] INFO: API Starting..
+2026-05-02 00:36:21,551 [CamaraProcess] INFO: Camera process started
+2026-05-02 00:36:21,552 [CamaraProcess] INFO: Connecting to camera source: tests/test_videos/test.mp4
+2026-05-02 00:36:21,566 [CamaraProcess] INFO: Camera connected successfully
+2026-05-02 00:36:21,566 [CamaraProcess] INFO: Source type   : video
+Frame interval: 0.5s (~2 frames checked/sec)
+2026-05-02 00:36:22,063 [DetectorProcess] INFO: Detector process started
+2026-05-02 00:36:47,358 [DetectorProcess] INFO: Loading model: /home/dilshan/Desktop/praking-mgmt-system/backend/best_openvino_model
+2026-05-02 00:36:47,359 [DetectorProcess] INFO: Device      : CPU
+2026-05-02 00:36:47,427 [DetectorProcess] INFO: YOLO OpenVINO model loaded successfully
+2026-05-02 00:36:47,434 [DetectorProcess] INFO: Detector ready | state: DETECTING | cooldown: 30s
+2026-05-02 00:36:52,126 [CamaraProcess] INFO: frame skiped
+2026-05-02 00:37:11,459 [DetectorProcess] INFO: Plate region detected — confidence: 0.82
+2026-05-02 00:37:17,865 [CamaraProcess] INFO: Video file ended — looping back to start
+2026-05-02 00:38:02,485 [CamaraProcess] INFO: Video file ended — looping back to start
+2026-05-02 00:38:46,914 [CamaraProcess] INFO: Video file ended — looping back to start
+2026-05-02 00:39:05,788 [DetectorProcess] INFO: Initializing EasyOCR (CPU mode)...
+2026-05-02 00:39:05,789 [DetectorProcess] WARNING: Using CPU. Note: This module is much faster with a GPU.
+2026-05-02 00:39:20,053 [DetectorProcess] INFO: EasyOCR ready
+2026-05-02 00:39:43,551 [CamaraProcess] INFO: Video file ended — looping back to start
+2026-05-02 00:39:55,664 [MainProcess] WARNING: Detector crashed — retrying...
+2026-05-02 00:39:55,680 [MainProcess] INFO: DetectorProcess zombie cleaned up
+2026-05-02 00:39:55,698 [MainProcess] INFO: DetectorProcess started (PID: 17455)
+2026-05-02 00:39:56,452 [DetectorProcess] INFO: Detector process started
+2026-05-02 00:40:20,056 [DetectorProcess] INFO: Loading model: /home/dilshan/Desktop/praking-mgmt-system/backend/best_openvino_model
+2026-05-02 00:40:20,057 [DetectorProcess] INFO: Device      : CPU
+2026-05-02 00:40:20,103 [DetectorProcess] INFO: YOLO OpenVINO model loaded successfully
+2026-05-02 00:40:20,105 [DetectorProcess] INFO: Detector ready | state: DETECTING | cooldown: 30s
+2026-05-02 00:40:34,575 [DetectorProcess] INFO: Plate region detected — confidence: 0.82
+2026-05-02 00:40:41,447 [CamaraProcess] INFO: Video file ended — looping back to start
+2026-05-02 00:41:09,936 [DetectorProcess] INFO: Initializing EasyOCR (CPU mode)...
+2026-05-02 00:41:09,938 [DetectorProcess] WARNING: Using CPU. Note: This module is much faster with a GPU.
+2026-05-02 00:41:25,258 [DetectorProcess] INFO: EasyOCR ready
+2026-05-02 00:41:38,676 [CamaraProcess] INFO: Video file ended — looping back to start
+2026-05-02 00:42:06,009 [MainProcess] WARNING: Detector crashed — retrying...
+2026-05-02 00:42:06,040 [MainProcess] INFO: DetectorProcess zombie cleaned up
+2026-05-02 00:42:06,071 [MainProcess] INFO: DetectorProcess started (PID: 17810)
+2026-05-02 00:42:07,136 [DetectorProcess] INFO: Detector process started
+2026-05-02 00:42:35,294 [CamaraProcess] INFO: Video file ended — looping back to start
+2026-05-02 00:42:46,956 [DetectorProcess] INFO: Loading model: /home/dilshan/Desktop/praking-mgmt-system/backend/best_openvino_model
+2026-05-02 00:42:46,957 [DetectorProcess] INFO: Device      : CPU
+2026-05-02 00:42:47,041 [DetectorProcess] INFO: YOLO OpenVINO model loaded successfully
+2026-05-02 00:42:47,048 [DetectorProcess] INFO: Detector ready | state: DETECTING | cooldown: 30s
+2026-05-02 00:43:04,109 [CamaraProcess] INFO: frame skiped
+2026-05-02 00:43:06,881 [CamaraProcess] INFO: frame skiped
+2026-05-02 00:43:11,155 [CamaraProcess] INFO: frame skiped
+2026-05-02 00:43:16,557 [CamaraProcess] INFO: frame skiped
+2026-05-02 00:43:27,474 [CamaraProcess] INFO: frame skiped
+2026-05-02 00:43:29,433 [DetectorProcess] INFO: Plate region detected — confidence: 0.76
+2026-05-02 00:43:36,275 [CamaraProcess] INFO: Video file ended — looping back to start
+2026-05-02 00:43:39,885 [DetectorProcess] INFO: Initializing EasyOCR (CPU mode)...
+2026-05-02 00:43:39,887 [DetectorProcess] WARNING: Using CPU. Note: This module is much faster with a GPU.
+2026-05-02 00:43:48,547 [CamaraProcess] INFO: Camera process interrupted
+2026-05-02 00:43:48,555 [MainProcess] INFO: Shutdown signal received (Ctrl+C)
+2026-05-02 00:43:48,578 [MainProcess] INFO: Shutting down...
+2026-05-02 00:43:48,579 [MainProcess] INFO: Stopping CameraProcess...
+2026-05-02 00:43:48,704 [MainProcess] INFO: CameraProcess stopped
+2026-05-02 00:43:48,704 [MainProcess] INFO: Stopping DetectorProcess...
+2026-05-02 00:43:48,829 [MainProcess] INFO: DetectorProcess stopped
+2026-05-02 00:43:48,829 [MainProcess] INFO: Stopping APIProcess...
+2026-05-02 00:43:49,188 [APIProcess] INFO: FastAPI shutting down
+2026-05-02 00:43:49,196 [APIProcess] INFO: API shutdown complete
+2026-05-02 00:43:49,251 [MainProcess] INFO: APIProcess stopped
+2026-05-02 00:43:49,252 [MainProcess] INFO: System shut down
+2026-05-02 00:46:26,363 [MainProcess] INFO: Starting Parking Management System... 
+2026-05-02 00:46:26,383 [MainProcess] INFO: APIProcess started (PID: 18652)
+2026-05-02 00:46:26,388 [MainProcess] INFO: CamaraProcess started (PID: 18653)
+2026-05-02 00:46:26,393 [MainProcess] INFO: DetectorProcess started (PID: 18654)
+2026-05-02 00:46:26,393 [MainProcess] INFO: All processes running.
+2026-05-02 00:46:26,394 [MainProcess] INFO: Frontend: run 'npm run dev' in /frontend
+2026-05-02 00:46:26,394 [MainProcess] INFO: API:      http://localhost:8000
+2026-05-02 00:46:26,394 [MainProcess] INFO: API Docs: http://localhost:8000/docs
+2026-05-02 00:46:26,396 [DetectorProcess] INFO: Detector process started
+2026-05-02 00:46:26,543 [CamaraProcess] INFO: Camera process started
+2026-05-02 00:46:26,544 [CamaraProcess] INFO: Connecting to camera source: tests/test_videos/test.mp4
+2026-05-02 00:46:27,549 [APIProcess] INFO: API Starting..
+2026-05-02 00:46:27,631 [CamaraProcess] INFO: Camera connected successfully
+2026-05-02 00:46:27,633 [CamaraProcess] INFO: Source type   : video
+Frame interval: 0.5s (~2 frames checked/sec)
+2026-05-02 00:46:33,918 [DetectorProcess] INFO: Loading model: /home/dilshan/Desktop/praking-mgmt-system/backend/best_openvino_model
+2026-05-02 00:46:33,918 [DetectorProcess] INFO: Device      : CPU
+2026-05-02 00:46:33,924 [DetectorProcess] INFO: YOLO OpenVINO model loaded successfully
+2026-05-02 00:46:33,926 [DetectorProcess] INFO: Detector ready | state: DETECTING | cooldown: 30s
+2026-05-02 00:46:33,955 [CamaraProcess] INFO: frame skiped
+2026-05-02 00:46:39,620 [CamaraProcess] INFO: frame skiped
+2026-05-02 00:46:43,552 [CamaraProcess] INFO: frame skiped
+2026-05-02 00:47:13,580 [CamaraProcess] INFO: frame skiped
+2026-05-02 00:47:17,906 [CamaraProcess] INFO: frame skiped
+2026-05-02 00:47:21,430 [CamaraProcess] INFO: frame skiped
+2026-05-02 00:47:23,782 [DetectorProcess] INFO: Plate region detected — confidence: 0.82
+2026-05-02 00:47:25,422 [DetectorProcess] INFO: Initializing EasyOCR (CPU mode)...
+2026-05-02 00:47:25,422 [DetectorProcess] WARNING: Using CPU. Note: This module is much faster with a GPU.
+2026-05-02 00:47:31,960 [CamaraProcess] INFO: Video file ended — looping back to start
+2026-05-02 00:47:36,433 [DetectorProcess] INFO: EasyOCR ready
+2026-05-02 00:47:56,422 [MainProcess] WARNING: Detector crashed — retrying...
+2026-05-02 00:47:56,424 [MainProcess] INFO: DetectorProcess zombie cleaned up
+2026-05-02 00:47:56,427 [MainProcess] INFO: DetectorProcess started (PID: 18946)
+2026-05-02 00:47:56,430 [DetectorProcess] INFO: Detector process started
+2026-05-02 00:48:11,752 [DetectorProcess] INFO: Loading model: /home/dilshan/Desktop/praking-mgmt-system/backend/best_openvino_model
+2026-05-02 00:48:11,752 [DetectorProcess] INFO: Device      : CPU
+2026-05-02 00:48:11,778 [DetectorProcess] INFO: YOLO OpenVINO model loaded successfully
+2026-05-02 00:48:11,779 [DetectorProcess] INFO: Detector ready | state: DETECTING | cooldown: 30s
+2026-05-02 00:48:19,094 [CamaraProcess] INFO: frame skiped
+2026-05-02 00:48:20,847 [CamaraProcess] INFO: frame skiped
+2026-05-02 00:48:23,300 [CamaraProcess] INFO: frame skiped
+2026-05-02 00:48:26,373 [DetectorProcess] INFO: Plate region detected — confidence: 0.75
+2026-05-02 00:48:30,151 [DetectorProcess] INFO: Initializing EasyOCR (CPU mode)...
+2026-05-02 00:48:30,152 [DetectorProcess] WARNING: Using CPU. Note: This module is much faster with a GPU.
+2026-05-02 00:48:32,980 [CamaraProcess] INFO: Video file ended — looping back to start
+2026-05-02 00:48:40,172 [DetectorProcess] INFO: EasyOCR ready
+2026-05-02 00:48:56,442 [MainProcess] ERROR: API died (exit: -9) — shutting down
+2026-05-02 00:48:56,443 [MainProcess] INFO: Shutting down...
+2026-05-02 00:48:56,443 [MainProcess] INFO: Stopping CameraProcess...
+2026-05-02 00:49:01,492 [MainProcess] INFO: CameraProcess stopped
+2026-05-02 00:49:01,493 [MainProcess] INFO: DetectorProcess zombie cleaned up
+2026-05-02 00:49:01,493 [MainProcess] INFO: APIProcess zombie cleaned up
+2026-05-02 00:49:01,493 [MainProcess] INFO: System shut down
+2026-05-02 00:50:38,145 [MainProcess] INFO: Starting Parking Management System... 
+2026-05-02 00:50:38,219 [MainProcess] INFO: APIProcess started (PID: 21668)
+2026-05-02 00:50:38,230 [MainProcess] INFO: CamaraProcess started (PID: 21669)
+2026-05-02 00:50:38,250 [MainProcess] INFO: DetectorProcess started (PID: 21673)
+2026-05-02 00:50:38,252 [MainProcess] INFO: All processes running.
+2026-05-02 00:50:38,252 [MainProcess] INFO: Frontend: run 'npm run dev' in /frontend
+2026-05-02 00:50:38,253 [MainProcess] INFO: API:      http://localhost:8000
+2026-05-02 00:50:38,254 [MainProcess] INFO: API Docs: http://localhost:8000/docs
+2026-05-02 00:50:39,171 [CamaraProcess] INFO: Camera process started
+2026-05-02 00:50:39,171 [CamaraProcess] INFO: Connecting to camera source: tests/test_videos/test.mp4
+2026-05-02 00:50:39,598 [DetectorProcess] INFO: Detector process started
+2026-05-02 00:50:39,839 [APIProcess] INFO: API Starting..
+2026-05-02 00:50:40,567 [CamaraProcess] INFO: Camera connected successfully
+2026-05-02 00:50:40,569 [CamaraProcess] INFO: Source type   : video
+Frame interval: 0.5s (~2 frames checked/sec)
+2026-05-02 00:51:26,126 [DetectorProcess] INFO: Loading model: /home/dilshan/Desktop/praking-mgmt-system/backend/best_openvino_model
+2026-05-02 00:51:26,209 [DetectorProcess] INFO: Device      : CPU
+2026-05-02 00:51:26,377 [DetectorProcess] INFO: YOLO OpenVINO model loaded successfully
+2026-05-02 00:51:26,388 [DetectorProcess] INFO: Detector ready | state: DETECTING | cooldown: 30s
+2026-05-02 00:51:29,564 [CamaraProcess] INFO: Video file ended — looping back to start
+2026-05-02 00:51:37,627 [DetectorProcess] INFO: Plate region detected — confidence: 0.82
+2026-05-02 00:52:28,695 [CamaraProcess] INFO: Video file ended — looping back to start
+2026-05-02 00:52:33,729 [DetectorProcess] INFO: Initializing EasyOCR (CPU mode)...
+2026-05-02 00:52:33,739 [DetectorProcess] WARNING: Using CPU. Note: This module is much faster with a GPU.
+2026-05-02 00:53:00,771 [DetectorProcess] INFO: EasyOCR ready
+2026-05-02 00:53:30,599 [CamaraProcess] INFO: Video file ended — looping back to start
+2026-05-02 00:54:13,508 [MainProcess] WARNING: Detector crashed — retrying...
+2026-05-02 00:54:13,980 [MainProcess] INFO: DetectorProcess zombie cleaned up
+2026-05-02 00:54:14,137 [MainProcess] INFO: DetectorProcess started (PID: 22023)
+2026-05-02 00:54:18,292 [DetectorProcess] INFO: Detector process started
+2026-05-02 00:54:25,512 [MainProcess] INFO: Shutdown signal received (Ctrl+C)
+2026-05-02 00:54:25,513 [MainProcess] INFO: Shutting down...
+2026-05-02 00:54:25,525 [MainProcess] INFO: Stopping CameraProcess...
+2026-05-02 00:54:25,583 [MainProcess] INFO: CameraProcess stopped
+2026-05-02 00:54:25,583 [MainProcess] INFO: Stopping DetectorProcess...
+2026-05-02 00:54:25,606 [MainProcess] INFO: DetectorProcess stopped
+2026-05-02 00:54:25,606 [MainProcess] INFO: Stopping APIProcess...
+2026-05-02 00:54:25,921 [APIProcess] INFO: FastAPI shutting down
+2026-05-02 00:54:25,928 [APIProcess] INFO: API shutdown complete
+2026-05-02 00:54:25,973 [MainProcess] INFO: APIProcess stopped
+2026-05-02 00:54:25,974 [MainProcess] INFO: System shut down
+2026-05-02 01:04:02,250 [MainProcess] INFO: Starting Parking Management System... 
+2026-05-02 01:04:02,270 [MainProcess] INFO: APIProcess started (PID: 22803)
+2026-05-02 01:04:02,276 [MainProcess] INFO: CamaraProcess started (PID: 22804)
+2026-05-02 01:04:02,284 [MainProcess] INFO: DetectorProcess started (PID: 22805)
+2026-05-02 01:04:02,286 [MainProcess] INFO: All processes running.
+2026-05-02 01:04:02,286 [MainProcess] INFO: Frontend: run 'npm run dev' in /frontend
+2026-05-02 01:04:02,286 [MainProcess] INFO: API:      http://localhost:8000
+2026-05-02 01:04:02,287 [MainProcess] INFO: API Docs: http://localhost:8000/docs
+2026-05-02 01:04:02,289 [DetectorProcess] INFO: Detector process started
+2026-05-02 01:04:02,353 [CamaraProcess] INFO: Camera process started
+2026-05-02 01:04:02,354 [CamaraProcess] INFO: Connecting to camera source: tests/test_videos/test.mp4
+2026-05-02 01:04:02,968 [APIProcess] INFO: API Starting..
+2026-05-02 01:04:03,001 [CamaraProcess] INFO: Camera connected successfully
+2026-05-02 01:04:03,001 [CamaraProcess] INFO: Source type   : video
+Frame interval: 0.5s (~2 frames checked/sec)
+2026-05-02 01:04:17,101 [DetectorProcess] INFO: Loading model: /home/dilshan/Desktop/praking-mgmt-system/backend/best_openvino_model
+2026-05-02 01:04:17,102 [DetectorProcess] INFO: Device      : CPU
+2026-05-02 01:04:17,151 [DetectorProcess] INFO: YOLO OpenVINO model loaded successfully
+2026-05-02 01:04:17,158 [DetectorProcess] INFO: Detector ready | state: DETECTING | cooldown: 30s
+2026-05-02 01:04:22,292 [CamaraProcess] INFO: frame skiped
+2026-05-02 01:04:27,679 [CamaraProcess] INFO: frame skiped
+2026-05-02 01:04:31,595 [CamaraProcess] INFO: frame skiped
+2026-05-02 01:04:44,968 [MainProcess] INFO: Shutdown signal received (Ctrl+C)
+2026-05-02 01:04:44,969 [MainProcess] INFO: Shutting down...
+2026-05-02 01:04:44,972 [MainProcess] INFO: Stopping CameraProcess...
+2026-05-02 01:04:45,007 [MainProcess] INFO: CameraProcess stopped
+2026-05-02 01:04:45,007 [MainProcess] INFO: Stopping DetectorProcess...
+2026-05-02 01:04:45,063 [MainProcess] INFO: DetectorProcess stopped
+2026-05-02 01:04:45,063 [MainProcess] INFO: Stopping APIProcess...
+2026-05-02 01:04:45,128 [APIProcess] INFO: FastAPI shutting down
+2026-05-02 01:04:45,128 [APIProcess] INFO: API shutdown complete
+2026-05-02 01:04:45,132 [MainProcess] INFO: APIProcess stopped
+2026-05-02 01:04:45,133 [MainProcess] INFO: System shut down
+2026-05-02 01:05:44,415 [MainProcess] INFO: Starting Parking Management System... 
+2026-05-02 01:05:44,438 [MainProcess] INFO: APIProcess started (PID: 23504)
+2026-05-02 01:05:44,447 [MainProcess] INFO: CamaraProcess started (PID: 23505)
+2026-05-02 01:05:44,457 [MainProcess] INFO: DetectorProcess started (PID: 23509)
+2026-05-02 01:05:44,458 [MainProcess] INFO: All processes running.
+2026-05-02 01:05:44,459 [MainProcess] INFO: Frontend: run 'npm run dev' in /frontend
+2026-05-02 01:05:44,460 [MainProcess] INFO: API:      http://localhost:8000
+2026-05-02 01:05:44,461 [MainProcess] INFO: API Docs: http://localhost:8000/docs
+2026-05-02 01:05:45,368 [APIProcess] INFO: API Starting..
+2026-05-02 01:05:45,861 [CamaraProcess] INFO: Camera process started
+2026-05-02 01:05:45,861 [CamaraProcess] INFO: Connecting to camera source: tests/test_videos/test.mp4
+2026-05-02 01:05:45,906 [CamaraProcess] INFO: Camera connected successfully
+2026-05-02 01:05:45,906 [CamaraProcess] INFO: Source type   : video
+Frame interval: 0.5s (~2 frames checked/sec)
+2026-05-02 01:05:46,452 [DetectorProcess] INFO: Detector process started
+2026-05-02 01:05:56,750 [DetectorProcess] INFO: Loading model: /home/dilshan/Desktop/praking-mgmt-system/backend/best_openvino_model
+2026-05-02 01:05:56,750 [DetectorProcess] INFO: Device      : CPU
+2026-05-02 01:05:56,764 [DetectorProcess] INFO: YOLO OpenVINO model loaded successfully
+2026-05-02 01:05:56,790 [DetectorProcess] INFO: Detector ready | state: DETECTING | cooldown: 30s
+2026-05-02 01:06:00,539 [CamaraProcess] INFO: frame skiped
+2026-05-02 01:06:05,086 [CamaraProcess] INFO: frame skiped
+2026-05-02 01:06:07,452 [CamaraProcess] INFO: frame skiped
+2026-05-02 01:06:10,809 [CamaraProcess] INFO: frame skiped
+2026-05-02 01:06:15,633 [CamaraProcess] INFO: frame skiped
+2026-05-02 01:06:17,791 [CamaraProcess] INFO: frame skiped
+2026-05-02 01:06:30,187 [CamaraProcess] INFO: frame skiped
+2026-05-02 01:06:44,731 [DetectorProcess] INFO: Plate region detected — confidence: 0.76
+2026-05-02 01:06:50,820 [CamaraProcess] INFO: Video file ended — looping back to start
+2026-05-02 01:07:36,665 [DetectorProcess] INFO: Initializing EasyOCR (CPU mode)...
+2026-05-02 01:07:36,676 [DetectorProcess] WARNING: Using CPU. Note: This module is much faster with a GPU.
+2026-05-02 01:07:41,931 [CamaraProcess] INFO: Video file ended — looping back to start
+2026-05-02 01:07:49,159 [DetectorProcess] INFO: EasyOCR ready
+2026-05-02 01:08:37,123 [CamaraProcess] INFO: Video file ended — looping back to start
+2026-05-02 01:08:39,496 [MainProcess] WARNING: Detector crashed — retrying...
+2026-05-02 01:08:39,501 [MainProcess] INFO: DetectorProcess zombie cleaned up
+2026-05-02 01:08:39,508 [MainProcess] INFO: DetectorProcess started (PID: 24052)
+2026-05-02 01:08:40,242 [DetectorProcess] INFO: Detector process started
+2026-05-02 01:09:03,303 [DetectorProcess] INFO: Loading model: /home/dilshan/Desktop/praking-mgmt-system/backend/best_openvino_model
+2026-05-02 01:09:03,303 [DetectorProcess] INFO: Device      : CPU
+2026-05-02 01:09:03,368 [DetectorProcess] INFO: YOLO OpenVINO model loaded successfully
+2026-05-02 01:09:03,370 [DetectorProcess] INFO: Detector ready | state: DETECTING | cooldown: 30s
+2026-05-02 01:09:08,985 [CamaraProcess] INFO: frame skiped
+2026-05-02 01:09:21,983 [CamaraProcess] INFO: frame skiped
+2026-05-02 01:09:34,471 [DetectorProcess] INFO: Plate region detected — confidence: 0.76
+2026-05-02 01:09:40,671 [CamaraProcess] INFO: Video file ended — looping back to start
+2026-05-02 01:10:30,067 [CamaraProcess] INFO: Video file ended — looping back to start
+2026-05-02 01:10:39,216 [DetectorProcess] INFO: Initializing EasyOCR (CPU mode)...
+2026-05-02 01:10:39,219 [DetectorProcess] WARNING: Using CPU. Note: This module is much faster with a GPU.
+2026-05-02 01:10:50,566 [DetectorProcess] INFO: EasyOCR ready
+2026-05-02 01:11:24,417 [CamaraProcess] INFO: Video file ended — looping back to start
+2026-05-02 01:12:23,845 [CamaraProcess] INFO: Video file ended — looping back to start
+2026-05-02 01:12:24,551 [MainProcess] WARNING: Detector crashed — retrying...
+2026-05-02 01:12:24,555 [MainProcess] INFO: DetectorProcess zombie cleaned up
+2026-05-02 01:12:24,565 [MainProcess] INFO: DetectorProcess started (PID: 24479)
+2026-05-02 01:12:25,250 [DetectorProcess] INFO: Detector process started
+2026-05-02 01:12:26,110 [MainProcess] INFO: Shutdown signal received (Ctrl+C)
+2026-05-02 01:12:26,110 [MainProcess] INFO: Shutting down...
+2026-05-02 01:12:26,111 [MainProcess] INFO: Stopping CameraProcess...
+2026-05-02 01:12:26,171 [MainProcess] INFO: CameraProcess stopped
+2026-05-02 01:12:26,172 [MainProcess] INFO: Stopping DetectorProcess...
+2026-05-02 01:12:26,426 [APIProcess] INFO: FastAPI shutting down
+2026-05-02 01:12:26,429 [APIProcess] INFO: API shutdown complete
+2026-05-02 01:23:56,683 [MainProcess] INFO: Starting Parking Management System... 
+2026-05-02 01:23:56,771 [MainProcess] INFO: APIProcess started (PID: 25551)
+2026-05-02 01:23:56,776 [MainProcess] INFO: CamaraProcess started (PID: 25552)
+2026-05-02 01:23:56,782 [MainProcess] INFO: DetectorProcess started (PID: 25553)
+2026-05-02 01:23:56,783 [MainProcess] INFO: All processes running.
+2026-05-02 01:23:56,784 [MainProcess] INFO: Frontend: run 'npm run dev' in /frontend
+2026-05-02 01:23:56,785 [DetectorProcess] INFO: Detector process started
+2026-05-02 01:23:56,785 [MainProcess] INFO: API:      http://localhost:8000
+2026-05-02 01:23:56,785 [MainProcess] INFO: API Docs: http://localhost:8000/docs
+2026-05-02 01:23:56,856 [CamaraProcess] INFO: Camera process started
+2026-05-02 01:23:56,857 [CamaraProcess] INFO: Connecting to camera source: tests/test_videos/test.mp4
+2026-05-02 01:23:58,411 [CamaraProcess] INFO: Camera connected successfully
+2026-05-02 01:23:58,415 [CamaraProcess] INFO: Source type   : video
+Frame interval: 0.5s (~2 frames checked/sec)
+2026-05-02 01:23:58,694 [APIProcess] INFO: API Starting..
+2026-05-02 01:24:26,349 [MainProcess] INFO: Shutdown signal received (Ctrl+C)
+2026-05-02 01:24:26,456 [MainProcess] INFO: Shutting down...
+2026-05-02 01:24:26,457 [MainProcess] INFO: Stopping CameraProcess...
+2026-05-02 01:24:26,536 [MainProcess] INFO: CameraProcess stopped
+2026-05-02 01:24:26,536 [MainProcess] INFO: Stopping DetectorProcess...
+2026-05-02 01:24:26,612 [MainProcess] INFO: DetectorProcess stopped
+2026-05-02 01:24:26,612 [MainProcess] INFO: Stopping APIProcess...
+2026-05-02 01:24:26,612 [APIProcess] INFO: FastAPI shutting down
+2026-05-02 01:24:26,617 [APIProcess] INFO: API shutdown complete
+2026-05-02 01:24:26,632 [MainProcess] INFO: APIProcess stopped
+2026-05-02 01:24:26,633 [MainProcess] INFO: System shut down
+2026-05-02 01:24:32,398 [MainProcess] INFO: Starting Parking Management System... 
+2026-05-02 01:24:32,408 [MainProcess] INFO: APIProcess started (PID: 25666)
+2026-05-02 01:24:32,412 [MainProcess] INFO: CamaraProcess started (PID: 25668)
+2026-05-02 01:24:32,417 [MainProcess] INFO: DetectorProcess started (PID: 25669)
+2026-05-02 01:24:32,418 [MainProcess] INFO: All processes running.
+2026-05-02 01:24:32,418 [MainProcess] INFO: Frontend: run 'npm run dev' in /frontend
+2026-05-02 01:24:32,418 [MainProcess] INFO: API:      http://localhost:8000
+2026-05-02 01:24:32,419 [MainProcess] INFO: API Docs: http://localhost:8000/docs
+2026-05-02 01:24:32,420 [DetectorProcess] INFO: Detector process started
+2026-05-02 01:24:32,479 [CamaraProcess] INFO: Camera process started
+2026-05-02 01:24:32,480 [CamaraProcess] INFO: Connecting to camera source: tests/test_videos/test.mp4
+2026-05-02 01:24:32,637 [CamaraProcess] INFO: Camera connected successfully
+2026-05-02 01:24:32,638 [CamaraProcess] INFO: Source type   : video
+Frame interval: 0.5s (~2 frames checked/sec)
+2026-05-02 01:24:32,783 [APIProcess] INFO: API Starting..
+2026-05-02 01:24:50,376 [DetectorProcess] INFO: Loading model: /home/dilshan/Desktop/praking-mgmt-system/backend/best_openvino_model
+2026-05-02 01:24:50,391 [DetectorProcess] INFO: Device      : CPU
+2026-05-02 01:24:50,425 [DetectorProcess] INFO: YOLO OpenVINO model loaded successfully
+2026-05-02 01:24:50,426 [DetectorProcess] INFO: Detector ready | state: DETECTING | cooldown: 30s
+2026-05-02 01:25:03,209 [CamaraProcess] INFO: frame skiped
+2026-05-02 01:25:07,020 [CamaraProcess] INFO: frame skiped
+2026-05-02 01:25:10,871 [CamaraProcess] INFO: frame skiped
+2026-05-02 01:25:16,168 [CamaraProcess] INFO: frame skiped
+2026-05-02 01:25:28,096 [DetectorProcess] INFO: Plate region detected — confidence: 0.76
+2026-05-02 01:25:28,689 [DetectorProcess] ERROR: OCR error: tesseract is not installed or it's not in your PATH. See README file for more information.
+2026-05-02 01:25:28,690 [DetectorProcess] WARNING: OCR returned empty text — skipping frame
+2026-05-02 01:25:28,790 [CamaraProcess] INFO: frame skiped
+2026-05-02 01:25:29,437 [DetectorProcess] INFO: Plate region detected — confidence: 0.81
+2026-05-02 01:25:29,634 [DetectorProcess] ERROR: OCR error: tesseract is not installed or it's not in your PATH. See README file for more information.
+2026-05-02 01:25:29,635 [DetectorProcess] WARNING: OCR returned empty text — skipping frame
+2026-05-02 01:25:30,348 [DetectorProcess] INFO: Plate region detected — confidence: 0.82
+2026-05-02 01:25:30,657 [DetectorProcess] ERROR: OCR error: tesseract is not installed or it's not in your PATH. See README file for more information.
+2026-05-02 01:25:30,658 [DetectorProcess] WARNING: OCR returned empty text — skipping frame
+2026-05-02 01:25:31,368 [DetectorProcess] INFO: Plate region detected — confidence: 0.81
+2026-05-02 01:25:31,618 [DetectorProcess] ERROR: OCR error: tesseract is not installed or it's not in your PATH. See README file for more information.
+2026-05-02 01:25:31,618 [DetectorProcess] WARNING: OCR returned empty text — skipping frame
+2026-05-02 01:25:32,246 [DetectorProcess] INFO: Plate region detected — confidence: 0.76
+2026-05-02 01:25:32,531 [DetectorProcess] ERROR: OCR error: tesseract is not installed or it's not in your PATH. See README file for more information.
+2026-05-02 01:25:32,532 [DetectorProcess] WARNING: OCR returned empty text — skipping frame
+2026-05-02 01:25:33,206 [DetectorProcess] INFO: Plate region detected — confidence: 0.76
+2026-05-02 01:25:33,462 [DetectorProcess] ERROR: OCR error: tesseract is not installed or it's not in your PATH. See README file for more information.
+2026-05-02 01:25:33,462 [DetectorProcess] WARNING: OCR returned empty text — skipping frame
+2026-05-02 01:25:34,150 [CamaraProcess] INFO: frame skiped
+2026-05-02 01:25:35,017 [CamaraProcess] INFO: Video file ended — looping back to start
+2026-05-02 01:25:40,437 [CamaraProcess] INFO: frame skiped
+2026-05-02 01:25:42,724 [CamaraProcess] INFO: frame skiped
+2026-05-02 01:25:45,824 [CamaraProcess] INFO: frame skiped
+2026-05-02 01:25:49,212 [CamaraProcess] INFO: frame skiped
+2026-05-02 01:25:57,683 [CamaraProcess] INFO: frame skiped
+2026-05-02 01:26:02,407 [CamaraProcess] INFO: frame skiped
+2026-05-02 01:26:05,213 [CamaraProcess] INFO: frame skiped
+2026-05-02 01:26:09,288 [CamaraProcess] INFO: frame skiped
+2026-05-02 01:26:10,847 [MainProcess] INFO: Shutdown signal received (Ctrl+C)
+2026-05-02 01:26:10,847 [MainProcess] INFO: Shutting down...
+2026-05-02 01:26:10,848 [MainProcess] INFO: Stopping CameraProcess...
+2026-05-02 01:26:10,905 [MainProcess] INFO: CameraProcess stopped
+2026-05-02 01:26:10,906 [MainProcess] INFO: Stopping DetectorProcess...
+2026-05-02 01:26:10,965 [MainProcess] INFO: DetectorProcess stopped
+2026-05-02 01:26:10,966 [MainProcess] INFO: Stopping APIProcess...
+2026-05-02 01:26:11,162 [APIProcess] INFO: FastAPI shutting down
+2026-05-02 01:26:11,163 [APIProcess] INFO: API shutdown complete
+2026-05-02 01:26:11,173 [MainProcess] INFO: APIProcess stopped
+2026-05-02 01:26:11,174 [MainProcess] INFO: System shut down
+2026-05-02 01:27:11,918 [MainProcess] INFO: Starting Parking Management System... 
+2026-05-02 01:27:11,955 [MainProcess] INFO: APIProcess started (PID: 26919)
+2026-05-02 01:27:11,959 [MainProcess] INFO: CamaraProcess started (PID: 26920)
+2026-05-02 01:27:11,964 [MainProcess] INFO: DetectorProcess started (PID: 26921)
+2026-05-02 01:27:11,965 [MainProcess] INFO: All processes running.
+2026-05-02 01:27:11,966 [MainProcess] INFO: Frontend: run 'npm run dev' in /frontend
+2026-05-02 01:27:11,966 [MainProcess] INFO: API:      http://localhost:8000
+2026-05-02 01:27:11,966 [MainProcess] INFO: API Docs: http://localhost:8000/docs
+2026-05-02 01:27:11,971 [DetectorProcess] INFO: Detector process started
+2026-05-02 01:27:12,037 [CamaraProcess] INFO: Camera process started
+2026-05-02 01:27:12,038 [CamaraProcess] INFO: Connecting to camera source: tests/test_videos/test.mp4
+2026-05-02 01:27:13,337 [CamaraProcess] INFO: Camera connected successfully
+2026-05-02 01:27:13,338 [CamaraProcess] INFO: Source type   : video
+Frame interval: 0.5s (~2 frames checked/sec)
+2026-05-02 01:27:13,538 [APIProcess] INFO: API Starting..
+2026-05-02 01:27:33,091 [DetectorProcess] INFO: Loading model: /home/dilshan/Desktop/praking-mgmt-system/backend/best_openvino_model
+2026-05-02 01:27:33,091 [DetectorProcess] INFO: Device      : CPU
+2026-05-02 01:27:33,135 [DetectorProcess] INFO: YOLO OpenVINO model loaded successfully
+2026-05-02 01:27:33,137 [DetectorProcess] INFO: Detector ready | state: DETECTING | cooldown: 30s
+2026-05-02 01:27:43,297 [CamaraProcess] INFO: frame skiped
+2026-05-02 01:27:56,098 [CamaraProcess] INFO: frame skiped
+2026-05-02 01:28:01,088 [CamaraProcess] INFO: frame skiped
+2026-05-02 01:28:06,201 [DetectorProcess] INFO: Plate region detected — confidence: 0.76
+2026-05-02 01:28:06,719 [DetectorProcess] ERROR: OCR error: tesseract is not installed or it's not in your PATH. See README file for more information.
+2026-05-02 01:28:06,719 [DetectorProcess] WARNING: OCR returned empty text — skipping frame
+2026-05-02 01:28:07,452 [DetectorProcess] INFO: Plate region detected — confidence: 0.79
+2026-05-02 01:28:07,661 [DetectorProcess] ERROR: OCR error: tesseract is not installed or it's not in your PATH. See README file for more information.
+2026-05-02 01:28:07,662 [DetectorProcess] WARNING: OCR returned empty text — skipping frame
+2026-05-02 01:28:08,373 [DetectorProcess] INFO: Plate region detected — confidence: 0.80
+2026-05-02 01:28:08,638 [DetectorProcess] ERROR: OCR error: tesseract is not installed or it's not in your PATH. See README file for more information.
+2026-05-02 01:28:08,639 [DetectorProcess] WARNING: OCR returned empty text — skipping frame
+2026-05-02 01:28:09,419 [DetectorProcess] INFO: Plate region detected — confidence: 0.81
+2026-05-02 01:28:09,675 [DetectorProcess] ERROR: OCR error: tesseract is not installed or it's not in your PATH. See README file for more information.
+2026-05-02 01:28:09,675 [DetectorProcess] WARNING: OCR returned empty text — skipping frame
+2026-05-02 01:28:10,377 [DetectorProcess] INFO: Plate region detected — confidence: 0.79
+2026-05-02 01:28:10,631 [DetectorProcess] ERROR: OCR error: tesseract is not installed or it's not in your PATH. See README file for more information.
+2026-05-02 01:28:10,631 [DetectorProcess] WARNING: OCR returned empty text — skipping frame
+2026-05-02 01:28:11,281 [DetectorProcess] INFO: Plate region detected — confidence: 0.80
+2026-05-02 01:28:11,615 [DetectorProcess] ERROR: OCR error: tesseract is not installed or it's not in your PATH. See README file for more information.
+2026-05-02 01:28:11,616 [DetectorProcess] WARNING: OCR returned empty text — skipping frame
+2026-05-02 01:28:13,221 [CamaraProcess] INFO: Video file ended — looping back to start
+2026-05-02 01:28:21,171 [MainProcess] INFO: Shutdown signal received (Ctrl+C)
+2026-05-02 01:28:21,171 [MainProcess] INFO: Shutting down...
+2026-05-02 01:28:21,171 [MainProcess] INFO: Stopping CameraProcess...
+2026-05-02 01:28:21,275 [MainProcess] INFO: CameraProcess stopped
+2026-05-02 01:28:21,276 [MainProcess] INFO: Stopping DetectorProcess...
+2026-05-02 01:28:21,333 [MainProcess] INFO: DetectorProcess stopped
+2026-05-02 01:28:21,333 [MainProcess] INFO: Stopping APIProcess...
+2026-05-02 01:28:21,336 [APIProcess] INFO: FastAPI shutting down
+2026-05-02 01:28:21,337 [APIProcess] INFO: API shutdown complete
+2026-05-02 01:28:21,342 [MainProcess] INFO: APIProcess stopped
+2026-05-02 01:28:21,342 [MainProcess] INFO: System shut down
+2026-05-02 01:29:50,338 [MainProcess] INFO: Starting Parking Management System... 
+2026-05-02 01:29:50,416 [MainProcess] INFO: APIProcess started (PID: 29570)
+2026-05-02 01:29:50,421 [MainProcess] INFO: CamaraProcess started (PID: 29571)
+2026-05-02 01:29:50,427 [MainProcess] INFO: DetectorProcess started (PID: 29572)
+2026-05-02 01:29:50,428 [MainProcess] INFO: All processes running.
+2026-05-02 01:29:50,429 [MainProcess] INFO: Frontend: run 'npm run dev' in /frontend
+2026-05-02 01:29:50,429 [MainProcess] INFO: API:      http://localhost:8000
+2026-05-02 01:29:50,429 [MainProcess] INFO: API Docs: http://localhost:8000/docs
+2026-05-02 01:29:50,431 [DetectorProcess] INFO: Detector process started
+2026-05-02 01:29:50,534 [CamaraProcess] INFO: Camera process started
+2026-05-02 01:29:50,535 [CamaraProcess] INFO: Connecting to camera source: tests/test_videos/test.mp4
+2026-05-02 01:29:51,983 [CamaraProcess] INFO: Camera connected successfully
+2026-05-02 01:29:51,985 [CamaraProcess] INFO: Source type   : video
+Frame interval: 0.5s (~2 frames checked/sec)
+2026-05-02 01:29:52,079 [APIProcess] INFO: API Starting..
+2026-05-02 01:30:42,735 [CamaraProcess] INFO: Video file ended — looping back to start
+2026-05-02 01:30:45,813 [DetectorProcess] INFO: Loading model: /home/dilshan/Desktop/praking-mgmt-system/backend/best_openvino_model
+2026-05-02 01:30:45,813 [DetectorProcess] INFO: Device      : CPU
+2026-05-02 01:30:45,950 [DetectorProcess] INFO: YOLO OpenVINO model loaded successfully
+2026-05-02 01:30:45,951 [DetectorProcess] INFO: Detector ready | state: DETECTING | cooldown: 30s
+2026-05-02 01:31:00,047 [CamaraProcess] INFO: frame skiped
+2026-05-02 01:31:04,487 [CamaraProcess] INFO: frame skiped
+2026-05-02 01:31:09,612 [CamaraProcess] INFO: frame skiped
+2026-05-02 01:31:14,038 [CamaraProcess] INFO: frame skiped
+2026-05-02 01:31:24,546 [CamaraProcess] INFO: frame skiped
+2026-05-02 01:31:30,345 [CamaraProcess] INFO: frame skiped
+2026-05-02 01:31:39,174 [DetectorProcess] INFO: Plate region detected — confidence: 0.75
+2026-05-02 01:31:40,022 [DetectorProcess] ERROR: OCR error: tesseract is not installed or it's not in your PATH. See README file for more information.
+2026-05-02 01:31:40,023 [DetectorProcess] WARNING: OCR returned empty text — skipping frame
+2026-05-02 01:31:40,693 [DetectorProcess] INFO: Plate region detected — confidence: 0.81
+2026-05-02 01:31:40,945 [DetectorProcess] ERROR: OCR error: tesseract is not installed or it's not in your PATH. See README file for more information.
+2026-05-02 01:31:40,945 [DetectorProcess] WARNING: OCR returned empty text — skipping frame
+2026-05-02 01:31:41,727 [DetectorProcess] INFO: Plate region detected — confidence: 0.81
+2026-05-02 01:31:41,919 [DetectorProcess] ERROR: OCR error: tesseract is not installed or it's not in your PATH. See README file for more information.
+2026-05-02 01:31:41,919 [DetectorProcess] WARNING: OCR returned empty text — skipping frame
+2026-05-02 01:31:42,560 [DetectorProcess] INFO: Plate region detected — confidence: 0.77
+2026-05-02 01:31:42,813 [DetectorProcess] ERROR: OCR error: tesseract is not installed or it's not in your PATH. See README file for more information.
+2026-05-02 01:31:42,813 [DetectorProcess] WARNING: OCR returned empty text — skipping frame
+2026-05-02 01:31:42,818 [CamaraProcess] INFO: frame skiped
+2026-05-02 01:31:43,397 [DetectorProcess] INFO: Plate region detected — confidence: 0.77
+2026-05-02 01:31:43,729 [DetectorProcess] ERROR: OCR error: tesseract is not installed or it's not in your PATH. See README file for more information.
+2026-05-02 01:31:43,730 [DetectorProcess] WARNING: OCR returned empty text — skipping frame
+2026-05-02 01:31:45,434 [CamaraProcess] INFO: Video file ended — looping back to start
+2026-05-02 01:32:06,810 [CamaraProcess] INFO: frame skiped
+2026-05-02 01:32:20,641 [CamaraProcess] INFO: frame skiped
+2026-05-02 01:32:28,281 [CamaraProcess] INFO: frame skiped
+2026-05-02 01:32:34,800 [CamaraProcess] INFO: frame skiped
+2026-05-02 01:32:39,356 [CamaraProcess] INFO: frame skiped
+2026-05-02 01:32:44,961 [DetectorProcess] INFO: Plate region detected — confidence: 0.76
+2026-05-02 01:32:45,113 [DetectorProcess] ERROR: OCR error: tesseract is not installed or it's not in your PATH. See README file for more information.
+2026-05-02 01:32:45,113 [DetectorProcess] WARNING: OCR returned empty text — skipping frame
+2026-05-02 01:32:45,797 [DetectorProcess] INFO: Plate region detected — confidence: 0.78
+2026-05-02 01:32:45,981 [DetectorProcess] ERROR: OCR error: tesseract is not installed or it's not in your PATH. See README file for more information.
+2026-05-02 01:32:45,982 [DetectorProcess] WARNING: OCR returned empty text — skipping frame
+2026-05-02 01:32:46,648 [DetectorProcess] INFO: Plate region detected — confidence: 0.79
+2026-05-02 01:32:46,833 [DetectorProcess] ERROR: OCR error: tesseract is not installed or it's not in your PATH. See README file for more information.
+2026-05-02 01:32:46,833 [DetectorProcess] WARNING: OCR returned empty text — skipping frame
+2026-05-02 01:32:47,493 [DetectorProcess] INFO: Plate region detected — confidence: 0.80
+2026-05-02 01:32:47,753 [DetectorProcess] ERROR: OCR error: tesseract is not installed or it's not in your PATH. See README file for more information.
+2026-05-02 01:32:47,753 [DetectorProcess] WARNING: OCR returned empty text — skipping frame
+2026-05-02 01:32:48,462 [DetectorProcess] INFO: Plate region detected — confidence: 0.77
+2026-05-02 01:32:48,651 [DetectorProcess] ERROR: OCR error: tesseract is not installed or it's not in your PATH. See README file for more information.
+2026-05-02 01:32:48,651 [DetectorProcess] WARNING: OCR returned empty text — skipping frame
+2026-05-02 01:32:49,294 [DetectorProcess] INFO: Plate region detected — confidence: 0.82
+2026-05-02 01:32:49,507 [DetectorProcess] ERROR: OCR error: tesseract is not installed or it's not in your PATH. See README file for more information.
+2026-05-02 01:32:49,507 [DetectorProcess] WARNING: OCR returned empty text — skipping frame
+2026-05-02 01:32:50,095 [DetectorProcess] INFO: Plate region detected — confidence: 0.80
+2026-05-02 01:32:50,279 [DetectorProcess] ERROR: OCR error: tesseract is not installed or it's not in your PATH. See README file for more information.
+2026-05-02 01:32:50,280 [DetectorProcess] WARNING: OCR returned empty text — skipping frame
+2026-05-02 01:32:52,307 [CamaraProcess] INFO: Video file ended — looping back to start
+2026-05-02 01:33:03,305 [CamaraProcess] INFO: frame skiped
+2026-05-02 01:33:11,675 [CamaraProcess] INFO: frame skiped
+2026-05-02 01:33:20,099 [CamaraProcess] INFO: frame skiped
+2026-05-02 01:33:22,660 [CamaraProcess] INFO: frame skiped
+2026-05-02 01:33:24,396 [CamaraProcess] INFO: frame skiped
+2026-05-02 01:33:35,468 [CamaraProcess] INFO: frame skiped
+2026-05-02 01:33:42,982 [CamaraProcess] INFO: frame skiped
+2026-05-02 01:33:45,770 [CamaraProcess] INFO: frame skiped
+2026-05-02 01:33:50,585 [CamaraProcess] INFO: frame skiped
+2026-05-02 01:33:59,012 [CamaraProcess] INFO: frame skiped
+2026-05-02 01:34:02,694 [DetectorProcess] INFO: Plate region detected — confidence: 0.78
+2026-05-02 01:34:03,076 [DetectorProcess] ERROR: OCR error: tesseract is not installed or it's not in your PATH. See README file for more information.
+2026-05-02 01:34:03,076 [DetectorProcess] WARNING: OCR returned empty text — skipping frame
+2026-05-02 01:34:04,364 [DetectorProcess] INFO: Plate region detected — confidence: 0.79
+2026-05-02 01:34:04,687 [DetectorProcess] ERROR: OCR error: tesseract is not installed or it's not in your PATH. See README file for more information.
+2026-05-02 01:34:04,687 [DetectorProcess] WARNING: OCR returned empty text — skipping frame
+2026-05-02 01:34:05,471 [DetectorProcess] INFO: Plate region detected — confidence: 0.77
+2026-05-02 01:34:05,741 [DetectorProcess] ERROR: OCR error: tesseract is not installed or it's not in your PATH. See README file for more information.
+2026-05-02 01:34:05,741 [DetectorProcess] WARNING: OCR returned empty text — skipping frame
+2026-05-02 01:34:07,294 [CamaraProcess] INFO: frame skiped
+2026-05-02 01:34:08,675 [CamaraProcess] INFO: Video file ended — looping back to start
+2026-05-02 01:34:09,399 [MainProcess] INFO: Shutdown signal received (Ctrl+C)
+2026-05-02 01:34:09,400 [MainProcess] INFO: Shutting down...
+2026-05-02 01:34:09,400 [MainProcess] INFO: Stopping CameraProcess...
+2026-05-02 01:34:09,461 [MainProcess] INFO: CameraProcess stopped
+2026-05-02 01:34:09,461 [MainProcess] INFO: Stopping DetectorProcess...
+2026-05-02 01:34:09,514 [MainProcess] INFO: DetectorProcess stopped
+2026-05-02 01:34:09,515 [MainProcess] INFO: Stopping APIProcess...
+2026-05-02 01:34:09,592 [APIProcess] INFO: FastAPI shutting down
+2026-05-02 01:34:09,592 [APIProcess] INFO: API shutdown complete
+2026-05-02 01:34:09,596 [MainProcess] INFO: APIProcess stopped
+2026-05-02 01:34:09,596 [MainProcess] INFO: System shut down
+2026-05-02 01:38:21,973 [MainProcess] INFO: Starting Parking Management System... 
+2026-05-02 01:38:22,010 [MainProcess] INFO: APIProcess started (PID: 30987)
+2026-05-02 01:38:22,016 [MainProcess] INFO: CamaraProcess started (PID: 30988)
+2026-05-02 01:38:22,028 [MainProcess] INFO: DetectorProcess started (PID: 30991)
+2026-05-02 01:38:22,030 [MainProcess] INFO: All processes running.
+2026-05-02 01:38:22,030 [MainProcess] INFO: Frontend: run 'npm run dev' in /frontend
+2026-05-02 01:38:22,030 [MainProcess] INFO: API:      http://localhost:8000
+2026-05-02 01:38:22,031 [MainProcess] INFO: API Docs: http://localhost:8000/docs
+2026-05-02 01:38:22,805 [APIProcess] INFO: API Starting..
+2026-05-02 01:38:22,930 [CamaraProcess] INFO: Camera process started
+2026-05-02 01:38:22,931 [CamaraProcess] INFO: Connecting to camera source: tests/test_videos/test.mp4
+2026-05-02 01:38:23,227 [CamaraProcess] INFO: Camera connected successfully
+2026-05-02 01:38:23,228 [CamaraProcess] INFO: Source type   : video
+Frame interval: 0.5s (~2 frames checked/sec)
+2026-05-02 01:38:23,413 [DetectorProcess] INFO: Detector process started
+2026-05-02 01:38:57,331 [DetectorProcess] INFO: Loading model: /home/dilshan/Desktop/praking-mgmt-system/backend/best_openvino_model
+2026-05-02 01:38:57,699 [DetectorProcess] INFO: Device      : CPU
+2026-05-02 01:38:57,894 [DetectorProcess] INFO: YOLO OpenVINO model loaded successfully
+2026-05-02 01:38:57,901 [DetectorProcess] INFO: Detector ready | state: DETECTING | cooldown: 30s
+2026-05-02 01:39:12,574 [CamaraProcess] INFO: frame skiped
+2026-05-02 01:39:19,398 [DetectorProcess] INFO: Plate region detected — confidence: 0.76
+2026-05-02 01:39:25,525 [CamaraProcess] INFO: Video file ended — looping back to start
+2026-05-02 01:40:15,549 [DetectorProcess] ERROR: OCR error: tesseract is not installed or it's not in your PATH. See README file for more information.
+2026-05-02 01:40:15,560 [DetectorProcess] WARNING: OCR returned empty text — skipping frame
+2026-05-02 01:40:18,188 [DetectorProcess] INFO: Plate region detected — confidence: 0.76
+2026-05-02 01:40:23,900 [CamaraProcess] INFO: Video file ended — looping back to start
+2026-05-02 01:40:59,719 [DetectorProcess] ERROR: OCR error: tesseract is not installed or it's not in your PATH. See README file for more information.
+2026-05-02 01:40:59,720 [DetectorProcess] WARNING: OCR returned empty text — skipping frame
+2026-05-02 01:41:05,860 [CamaraProcess] INFO: frame skiped
+2026-05-02 01:41:11,155 [DetectorProcess] INFO: Plate region detected — confidence: 0.80
+2026-05-02 01:41:18,914 [CamaraProcess] INFO: Video file ended — looping back to start
+2026-05-02 01:41:20,294 [DetectorProcess] ERROR: OCR error: tesseract is not installed or it's not in your PATH. See README file for more information.
+2026-05-02 01:41:20,296 [DetectorProcess] WARNING: OCR returned empty text — skipping frame
+2026-05-02 01:41:21,310 [CamaraProcess] INFO: frame skiped
+2026-05-02 01:41:25,645 [CamaraProcess] INFO: frame skiped
+2026-05-02 01:41:38,675 [CamaraProcess] INFO: frame skiped
+2026-05-02 01:41:44,026 [CamaraProcess] INFO: frame skiped
+2026-05-02 01:41:45,680 [CamaraProcess] INFO: frame skiped
+2026-05-02 01:41:47,534 [CamaraProcess] INFO: frame skiped
+2026-05-02 01:41:53,194 [CamaraProcess] INFO: frame skiped
+2026-05-02 01:42:03,286 [CamaraProcess] INFO: frame skiped
+2026-05-02 01:42:09,463 [CamaraProcess] INFO: frame skiped
+2026-05-02 01:42:12,014 [CamaraProcess] INFO: frame skiped
+2026-05-02 01:42:22,191 [DetectorProcess] INFO: Plate region detected — confidence: 0.82
+2026-05-02 01:42:22,358 [DetectorProcess] ERROR: OCR error: tesseract is not installed or it's not in your PATH. See README file for more information.
+2026-05-02 01:42:22,359 [DetectorProcess] WARNING: OCR returned empty text — skipping frame
+2026-05-02 01:42:23,025 [DetectorProcess] INFO: Plate region detected — confidence: 0.81
+2026-05-02 01:42:23,226 [DetectorProcess] ERROR: OCR error: tesseract is not installed or it's not in your PATH. See README file for more information.
+2026-05-02 01:42:23,227 [DetectorProcess] WARNING: OCR returned empty text — skipping frame
+2026-05-02 01:42:23,931 [DetectorProcess] INFO: Plate region detected — confidence: 0.82
+2026-05-02 01:42:24,166 [DetectorProcess] ERROR: OCR error: tesseract is not installed or it's not in your PATH. See README file for more information.
+2026-05-02 01:42:24,167 [DetectorProcess] WARNING: OCR returned empty text — skipping frame
+2026-05-02 01:42:24,835 [DetectorProcess] INFO: Plate region detected — confidence: 0.79
+2026-05-02 01:42:25,046 [DetectorProcess] ERROR: OCR error: tesseract is not installed or it's not in your PATH. See README file for more information.
+2026-05-02 01:42:25,046 [DetectorProcess] WARNING: OCR returned empty text — skipping frame
+2026-05-02 01:42:25,699 [DetectorProcess] INFO: Plate region detected — confidence: 0.81
+2026-05-02 01:42:26,015 [DetectorProcess] ERROR: OCR error: tesseract is not installed or it's not in your PATH. See README file for more information.
+2026-05-02 01:42:26,017 [DetectorProcess] WARNING: OCR returned empty text — skipping frame
+2026-05-02 01:42:26,671 [DetectorProcess] INFO: Plate region detected — confidence: 0.77
+2026-05-02 01:42:26,927 [DetectorProcess] ERROR: OCR error: tesseract is not installed or it's not in your PATH. See README file for more information.
+2026-05-02 01:42:26,928 [DetectorProcess] WARNING: OCR returned empty text — skipping frame
+2026-05-02 01:42:27,591 [DetectorProcess] INFO: Plate region detected — confidence: 0.76
+2026-05-02 01:42:27,817 [DetectorProcess] ERROR: OCR error: tesseract is not installed or it's not in your PATH. See README file for more information.
+2026-05-02 01:42:27,817 [DetectorProcess] WARNING: OCR returned empty text — skipping frame
+2026-05-02 01:42:28,419 [DetectorProcess] INFO: Plate region detected — confidence: 0.78
+2026-05-02 01:42:28,730 [DetectorProcess] ERROR: OCR error: tesseract is not installed or it's not in your PATH. See README file for more information.
+2026-05-02 01:42:28,730 [DetectorProcess] WARNING: OCR returned empty text — skipping frame
+2026-05-02 01:42:30,181 [CamaraProcess] INFO: Video file ended — looping back to start
+2026-05-02 01:42:39,389 [MainProcess] INFO: Shutdown signal received (Ctrl+C)
+2026-05-02 01:42:39,425 [MainProcess] INFO: Shutting down...
+2026-05-02 01:42:39,426 [MainProcess] INFO: Stopping CameraProcess...
+2026-05-02 01:42:39,512 [MainProcess] INFO: CameraProcess stopped
+2026-05-02 01:42:39,512 [MainProcess] INFO: Stopping DetectorProcess...
+2026-05-02 01:42:39,600 [MainProcess] INFO: DetectorProcess stopped
+2026-05-02 01:42:39,600 [MainProcess] INFO: Stopping APIProcess...
+2026-05-02 01:42:39,680 [APIProcess] INFO: FastAPI shutting down
+2026-05-02 01:42:39,694 [APIProcess] INFO: API shutdown complete
+2026-05-02 01:42:39,739 [MainProcess] INFO: APIProcess stopped
+2026-05-02 01:42:39,740 [MainProcess] INFO: System shut down
+2026-05-02 01:45:09,300 [MainProcess] INFO: Starting Parking Management System... 
+2026-05-02 01:45:09,329 [MainProcess] INFO: APIProcess started (PID: 32431)
+2026-05-02 01:45:09,338 [MainProcess] INFO: CamaraProcess started (PID: 32432)
+2026-05-02 01:45:09,352 [MainProcess] INFO: DetectorProcess started (PID: 32436)
+2026-05-02 01:45:09,355 [MainProcess] INFO: All processes running.
+2026-05-02 01:45:09,356 [MainProcess] INFO: Frontend: run 'npm run dev' in /frontend
+2026-05-02 01:45:09,356 [MainProcess] INFO: API:      http://localhost:8000
+2026-05-02 01:45:09,357 [MainProcess] INFO: API Docs: http://localhost:8000/docs
+2026-05-02 01:45:10,166 [APIProcess] INFO: API Starting..
+2026-05-02 01:45:10,257 [CamaraProcess] INFO: Camera process started
+2026-05-02 01:45:10,258 [CamaraProcess] INFO: Connecting to camera source: tests/test_videos/test.mp4
+2026-05-02 01:45:10,626 [CamaraProcess] INFO: Camera connected successfully
+2026-05-02 01:45:10,627 [CamaraProcess] INFO: Source type   : video
+Frame interval: 0.5s (~2 frames checked/sec)
+2026-05-02 01:45:10,765 [DetectorProcess] INFO: Detector process started
+2026-05-02 01:45:41,257 [DetectorProcess] INFO: Loading model: /home/dilshan/Desktop/praking-mgmt-system/backend/best_openvino_model
+2026-05-02 01:45:41,258 [DetectorProcess] INFO: Device      : CPU
+2026-05-02 01:45:41,314 [DetectorProcess] INFO: YOLO OpenVINO model loaded successfully
+2026-05-02 01:45:41,326 [DetectorProcess] INFO: Detector ready | state: DETECTING | cooldown: 30s
+2026-05-02 01:45:55,861 [CamaraProcess] INFO: frame skiped
+2026-05-02 01:45:59,848 [CamaraProcess] INFO: frame skiped
+2026-05-02 01:46:01,310 [DetectorProcess] INFO: Plate region detected — confidence: 0.76
+2026-05-02 01:46:07,228 [CamaraProcess] INFO: Video file ended — looping back to start
+2026-05-02 01:46:16,979 [DetectorProcess] ERROR: OCR error: tesseract is not installed or it's not in your PATH. See README file for more information.
+2026-05-02 01:46:16,980 [DetectorProcess] WARNING: OCR returned empty text — skipping frame
+2026-05-02 01:46:26,109 [CamaraProcess] INFO: frame skiped
+2026-05-02 01:46:27,976 [CamaraProcess] INFO: frame skiped
+2026-05-02 01:46:30,953 [MainProcess] INFO: Shutdown signal received (Ctrl+C)
+2026-05-02 01:46:30,953 [MainProcess] INFO: Shutting down...
+2026-05-02 01:46:30,954 [MainProcess] INFO: Stopping CameraProcess...
+2026-05-02 01:46:31,050 [MainProcess] INFO: CameraProcess stopped
+2026-05-02 01:46:31,050 [MainProcess] INFO: Stopping DetectorProcess...
+2026-05-02 01:46:31,089 [APIProcess] INFO: FastAPI shutting down
+2026-05-02 01:46:31,089 [APIProcess] INFO: API shutdown complete
+2026-05-02 01:46:31,110 [MainProcess] INFO: DetectorProcess stopped
+2026-05-02 01:46:31,111 [MainProcess] INFO: Stopping APIProcess...
+2026-05-02 01:46:31,118 [MainProcess] INFO: APIProcess stopped
+2026-05-02 01:46:31,118 [MainProcess] INFO: System shut down
+2026-05-02 01:55:54,923 [MainProcess] INFO: Starting Parking Management System... 
+2026-05-02 01:55:54,940 [MainProcess] INFO: APIProcess started (PID: 33587)
+2026-05-02 01:55:54,947 [MainProcess] INFO: CamaraProcess started (PID: 33588)
+2026-05-02 01:55:54,957 [MainProcess] INFO: DetectorProcess started (PID: 33591)
+2026-05-02 01:55:54,958 [MainProcess] INFO: All processes running.
+2026-05-02 01:55:54,959 [MainProcess] INFO: Frontend: run 'npm run dev' in /frontend
+2026-05-02 01:55:54,959 [MainProcess] INFO: API:      http://localhost:8000
+2026-05-02 01:55:54,959 [MainProcess] INFO: API Docs: http://localhost:8000/docs
+2026-05-02 01:55:55,852 [APIProcess] INFO: API Starting..
+2026-05-02 01:55:55,985 [CamaraProcess] INFO: Camera process started
+2026-05-02 01:55:55,987 [CamaraProcess] INFO: Connecting to camera source: tests/test_videos/test.mp4
+2026-05-02 01:55:56,296 [CamaraProcess] INFO: Camera connected successfully
+2026-05-02 01:55:56,296 [CamaraProcess] INFO: Source type   : video
+Frame interval: 0.5s (~2 frames checked/sec)
+2026-05-02 01:56:17,205 [DetectorProcess] INFO: Detector process started
+2026-05-02 01:56:46,650 [DetectorProcess] INFO: Loading model: /home/dilshan/Desktop/praking-mgmt-system/backend/best_openvino_model
+2026-05-02 01:56:46,675 [DetectorProcess] INFO: Device      : CPU
+2026-05-02 01:56:46,706 [DetectorProcess] INFO: YOLO OpenVINO model loaded successfully
+2026-05-02 01:56:46,776 [DetectorProcess] INFO: Detector ready | state: DETECTING | cooldown: 30s
+2026-05-02 01:56:49,702 [CamaraProcess] INFO: Video file ended — looping back to start
+2026-05-02 01:57:28,814 [DetectorProcess] INFO: Plate region detected — confidence: 0.79
+2026-05-02 01:57:45,627 [CamaraProcess] INFO: Video file ended — looping back to start
+2026-05-02 01:58:13,228 [DetectorProcess] ERROR: OCR error: tesseract is not installed or it's not in your PATH. See README file for more information.
+2026-05-02 01:58:13,229 [DetectorProcess] WARNING: OCR returned empty text — skipping frame
+2026-05-02 01:58:25,971 [CamaraProcess] INFO: frame skiped
+2026-05-02 01:58:39,229 [CamaraProcess] INFO: Video file ended — looping back to start
+2026-05-02 01:58:51,674 [CamaraProcess] INFO: frame skiped
+2026-05-02 01:59:04,622 [CamaraProcess] INFO: frame skiped
+2026-05-02 01:59:27,616 [CamaraProcess] INFO: frame skiped
+2026-05-02 01:59:32,400 [CamaraProcess] INFO: frame skiped
+2026-05-02 01:59:36,698 [DetectorProcess] INFO: Plate region detected — confidence: 0.76
+2026-05-02 01:59:40,934 [DetectorProcess] ERROR: OCR error: tesseract is not installed or it's not in your PATH. See README file for more information.
+2026-05-02 01:59:40,936 [DetectorProcess] WARNING: OCR returned empty text — skipping frame
+2026-05-02 01:59:41,797 [DetectorProcess] INFO: Plate region detected — confidence: 0.76
+2026-05-02 01:59:44,399 [CamaraProcess] INFO: Video file ended — looping back to start
+2026-05-02 02:00:08,407 [DetectorProcess] ERROR: OCR error: tesseract is not installed or it's not in your PATH. See README file for more information.
+2026-05-02 02:00:08,445 [DetectorProcess] WARNING: OCR returned empty text — skipping frame
+2026-05-02 02:00:13,424 [MainProcess] INFO: Shutdown signal received (Ctrl+C)
+2026-05-02 02:00:13,441 [MainProcess] INFO: Shutting down...
+2026-05-02 02:00:13,444 [MainProcess] INFO: Stopping CameraProcess...
+2026-05-02 02:00:13,524 [MainProcess] INFO: CameraProcess stopped
+2026-05-02 02:00:13,525 [MainProcess] INFO: Stopping DetectorProcess...
+2026-05-02 02:00:13,599 [MainProcess] INFO: DetectorProcess stopped
+2026-05-02 02:00:13,599 [MainProcess] INFO: Stopping APIProcess...
+2026-05-02 02:00:13,712 [APIProcess] INFO: FastAPI shutting down
+2026-05-02 02:00:13,716 [APIProcess] INFO: API shutdown complete
+2026-05-02 02:00:13,744 [MainProcess] INFO: APIProcess stopped
+2026-05-02 02:00:13,745 [MainProcess] INFO: System shut down
+2026-05-02 02:01:54,284 [MainProcess] INFO: Starting Parking Management System... 
+2026-05-02 02:01:54,301 [MainProcess] INFO: APIProcess started (PID: 34426)
+2026-05-02 02:01:54,312 [MainProcess] INFO: CamaraProcess started (PID: 34427)
+2026-05-02 02:01:54,319 [MainProcess] INFO: DetectorProcess started (PID: 34428)
+2026-05-02 02:01:54,321 [MainProcess] INFO: All processes running.
+2026-05-02 02:01:54,322 [MainProcess] INFO: Frontend: run 'npm run dev' in /frontend
+2026-05-02 02:01:54,322 [MainProcess] INFO: API:      http://localhost:8000
+2026-05-02 02:01:54,322 [MainProcess] INFO: API Docs: http://localhost:8000/docs
+2026-05-02 02:01:54,324 [DetectorProcess] INFO: Detector process started
+2026-05-02 02:01:54,434 [CamaraProcess] INFO: Camera process started
+2026-05-02 02:01:54,435 [CamaraProcess] INFO: Connecting to camera source: tests/test_videos/test.mp4
+2026-05-02 02:01:55,295 [APIProcess] INFO: API Starting..
+2026-05-02 02:01:55,320 [CamaraProcess] INFO: Camera connected successfully
+2026-05-02 02:01:55,321 [CamaraProcess] INFO: Source type   : video
+Frame interval: 0.5s (~2 frames checked/sec)
+2026-05-02 02:02:28,919 [DetectorProcess] INFO: Loading model: /home/dilshan/Desktop/praking-mgmt-system/backend/best_openvino_model
+2026-05-02 02:02:29,255 [DetectorProcess] INFO: Device      : CPU
+2026-05-02 02:02:29,301 [DetectorProcess] INFO: YOLO OpenVINO model loaded successfully
+2026-05-02 02:02:29,474 [DetectorProcess] INFO: Detector ready | state: DETECTING | cooldown: 30s
+2026-05-02 02:02:29,681 [CamaraProcess] INFO: frame skiped
+2026-05-02 02:02:37,838 [CamaraProcess] INFO: frame skiped
+2026-05-02 02:02:40,425 [CamaraProcess] INFO: frame skiped
+2026-05-02 02:02:43,460 [CamaraProcess] INFO: frame skiped
+2026-05-02 02:02:45,751 [CamaraProcess] INFO: frame skiped
+2026-05-02 02:02:49,957 [DetectorProcess] INFO: Plate region detected — confidence: 0.82
+2026-05-02 02:02:50,906 [DetectorProcess] ERROR: OCR error: tesseract is not installed or it's not in your PATH. See README file for more information.
+2026-05-02 02:02:50,907 [DetectorProcess] WARNING: OCR returned empty text — skipping frame
+2026-05-02 02:02:51,664 [DetectorProcess] INFO: Plate region detected — confidence: 0.82
+2026-05-02 02:02:51,880 [DetectorProcess] ERROR: OCR error: tesseract is not installed or it's not in your PATH. See README file for more information.
+2026-05-02 02:02:51,881 [DetectorProcess] WARNING: OCR returned empty text — skipping frame
+2026-05-02 02:02:52,591 [DetectorProcess] INFO: Plate region detected — confidence: 0.79
+2026-05-02 02:02:52,893 [DetectorProcess] ERROR: OCR error: tesseract is not installed or it's not in your PATH. See README file for more information.
+2026-05-02 02:02:52,895 [DetectorProcess] WARNING: OCR returned empty text — skipping frame
+2026-05-02 02:02:53,945 [DetectorProcess] INFO: Plate region detected — confidence: 0.79
+2026-05-02 02:02:54,278 [DetectorProcess] ERROR: OCR error: tesseract is not installed or it's not in your PATH. See README file for more information.
+2026-05-02 02:02:54,279 [DetectorProcess] WARNING: OCR returned empty text — skipping frame
+2026-05-02 02:02:54,941 [DetectorProcess] INFO: Plate region detected — confidence: 0.81
+2026-05-02 02:02:55,238 [DetectorProcess] ERROR: OCR error: tesseract is not installed or it's not in your PATH. See README file for more information.
+2026-05-02 02:02:55,239 [DetectorProcess] WARNING: OCR returned empty text — skipping frame
+2026-05-02 02:02:56,801 [CamaraProcess] INFO: frame skiped
+2026-05-02 02:02:58,157 [DetectorProcess] INFO: Plate region detected — confidence: 0.76
+2026-05-02 02:02:58,547 [DetectorProcess] ERROR: OCR error: tesseract is not installed or it's not in your PATH. See README file for more information.
+2026-05-02 02:02:58,547 [DetectorProcess] WARNING: OCR returned empty text — skipping frame
+2026-05-02 02:02:58,770 [CamaraProcess] INFO: Video file ended — looping back to start
+2026-05-02 02:03:05,245 [CamaraProcess] INFO: frame skiped
+2026-05-02 02:03:10,080 [CamaraProcess] INFO: frame skiped
+2026-05-02 02:03:13,399 [CamaraProcess] INFO: frame skiped
+2026-05-02 02:03:17,907 [CamaraProcess] INFO: frame skiped
+2026-05-02 02:03:20,758 [CamaraProcess] INFO: frame skiped
+2026-05-02 02:03:32,313 [CamaraProcess] INFO: frame skiped
+2026-05-02 02:03:39,008 [MainProcess] INFO: Shutdown signal received (Ctrl+C)
+2026-05-02 02:03:39,145 [CamaraProcess] INFO: Camera process interrupted
+2026-05-02 02:03:39,153 [MainProcess] INFO: Shutting down...
+2026-05-02 02:03:39,159 [MainProcess] INFO: Stopping CameraProcess...
+2026-05-02 02:03:39,250 [MainProcess] INFO: CameraProcess stopped
+2026-05-02 02:03:39,251 [MainProcess] INFO: Stopping DetectorProcess...
+2026-05-02 02:03:39,318 [MainProcess] INFO: DetectorProcess stopped
+2026-05-02 02:03:39,318 [MainProcess] INFO: Stopping APIProcess...
+2026-05-02 02:03:39,725 [APIProcess] INFO: FastAPI shutting down
+2026-05-02 02:03:39,759 [APIProcess] INFO: API shutdown complete
+2026-05-02 02:03:39,941 [MainProcess] INFO: APIProcess stopped
+2026-05-02 02:03:39,941 [MainProcess] INFO: System shut down
+2026-05-02 02:03:49,251 [MainProcess] INFO: Starting Parking Management System... 
+2026-05-02 02:03:49,261 [MainProcess] INFO: APIProcess started (PID: 35742)
+2026-05-02 02:03:49,266 [MainProcess] INFO: CamaraProcess started (PID: 35743)
+2026-05-02 02:03:49,272 [MainProcess] INFO: DetectorProcess started (PID: 35744)
+2026-05-02 02:03:49,275 [MainProcess] INFO: All processes running.
+2026-05-02 02:03:49,277 [MainProcess] INFO: Frontend: run 'npm run dev' in /frontend
+2026-05-02 02:03:49,277 [MainProcess] INFO: API:      http://localhost:8000
+2026-05-02 02:03:49,278 [MainProcess] INFO: API Docs: http://localhost:8000/docs
+2026-05-02 02:03:49,277 [DetectorProcess] INFO: Detector process started
+2026-05-02 02:03:49,316 [CamaraProcess] INFO: Camera process started
+2026-05-02 02:03:49,317 [CamaraProcess] INFO: Connecting to camera source: tests/test_videos/test.mp4
+2026-05-02 02:03:50,514 [APIProcess] INFO: API Starting..
+2026-05-02 02:03:50,774 [CamaraProcess] INFO: Camera connected successfully
+2026-05-02 02:03:50,774 [CamaraProcess] INFO: Source type   : video
+Frame interval: 0.5s (~2 frames checked/sec)
+2026-05-02 02:04:07,435 [DetectorProcess] INFO: Loading model: /home/dilshan/Desktop/praking-mgmt-system/backend/best_openvino_model
+2026-05-02 02:04:07,436 [DetectorProcess] INFO: Device      : CPU
+2026-05-02 02:04:07,467 [DetectorProcess] INFO: YOLO OpenVINO model loaded successfully
+2026-05-02 02:04:07,470 [DetectorProcess] INFO: Detector ready | state: DETECTING | cooldown: 30s
+2026-05-02 02:04:07,550 [CamaraProcess] INFO: frame skiped
+2026-05-02 02:04:13,834 [CamaraProcess] INFO: frame skiped
+2026-05-02 02:04:29,701 [CamaraProcess] INFO: frame skiped
+2026-05-02 02:04:35,466 [CamaraProcess] INFO: frame skiped
+2026-05-02 02:04:41,839 [DetectorProcess] INFO: Plate region detected — confidence: 0.80
+2026-05-02 02:04:42,273 [DetectorProcess] ERROR: OCR error: tesseract is not installed or it's not in your PATH. See README file for more information.
+2026-05-02 02:04:42,274 [DetectorProcess] WARNING: OCR returned empty text — skipping frame
+2026-05-02 02:04:42,948 [DetectorProcess] INFO: Plate region detected — confidence: 0.82
+2026-05-02 02:04:43,199 [DetectorProcess] ERROR: OCR error: tesseract is not installed or it's not in your PATH. See README file for more information.
+2026-05-02 02:04:43,199 [DetectorProcess] WARNING: OCR returned empty text — skipping frame
+2026-05-02 02:04:43,895 [DetectorProcess] INFO: Plate region detected — confidence: 0.79
+2026-05-02 02:04:44,166 [DetectorProcess] ERROR: OCR error: tesseract is not installed or it's not in your PATH. See README file for more information.
+2026-05-02 02:04:44,167 [DetectorProcess] WARNING: OCR returned empty text — skipping frame
+2026-05-02 02:04:44,252 [CamaraProcess] INFO: frame skiped
+2026-05-02 02:04:44,814 [DetectorProcess] INFO: Plate region detected — confidence: 0.81
+2026-05-02 02:04:45,162 [DetectorProcess] ERROR: OCR error: tesseract is not installed or it's not in your PATH. See README file for more information.
+2026-05-02 02:04:45,162 [DetectorProcess] WARNING: OCR returned empty text — skipping frame
+2026-05-02 02:04:45,833 [DetectorProcess] INFO: Plate region detected — confidence: 0.77
+2026-05-02 02:04:46,175 [DetectorProcess] ERROR: OCR error: tesseract is not installed or it's not in your PATH. See README file for more information.
+2026-05-02 02:04:46,176 [DetectorProcess] WARNING: OCR returned empty text — skipping frame
+2026-05-02 02:04:46,841 [DetectorProcess] INFO: Plate region detected — confidence: 0.77
+2026-05-02 02:04:47,114 [DetectorProcess] ERROR: OCR error: tesseract is not installed or it's not in your PATH. See README file for more information.
+2026-05-02 02:04:47,114 [DetectorProcess] WARNING: OCR returned empty text — skipping frame
+2026-05-02 02:04:48,416 [CamaraProcess] INFO: frame skiped
+2026-05-02 02:04:49,393 [CamaraProcess] INFO: Video file ended — looping back to start
+2026-05-02 02:04:53,674 [CamaraProcess] INFO: frame skiped
+2026-05-02 02:04:59,711 [CamaraProcess] INFO: frame skiped
+2026-05-02 02:05:20,666 [CamaraProcess] INFO: frame skiped
+2026-05-02 02:05:22,594 [CamaraProcess] INFO: frame skiped
+2026-05-02 02:05:30,133 [CamaraProcess] INFO: frame skiped
+2026-05-02 02:05:33,210 [CamaraProcess] INFO: frame skiped
+2026-05-02 02:05:37,348 [CamaraProcess] INFO: frame skiped
+2026-05-02 02:05:41,952 [CamaraProcess] INFO: frame skiped
+2026-05-02 02:05:43,703 [MainProcess] INFO: Shutdown signal received (Ctrl+C)
+2026-05-02 02:05:43,703 [MainProcess] INFO: Shutting down...
+2026-05-02 02:05:43,704 [MainProcess] INFO: Stopping CameraProcess...
+2026-05-02 02:05:43,773 [MainProcess] INFO: CameraProcess stopped
+2026-05-02 02:05:43,774 [MainProcess] INFO: Stopping DetectorProcess...
+2026-05-02 02:05:43,823 [MainProcess] INFO: DetectorProcess stopped
+2026-05-02 02:05:43,824 [MainProcess] INFO: Stopping APIProcess...
+2026-05-02 02:05:43,867 [APIProcess] INFO: FastAPI shutting down
+2026-05-02 02:05:43,867 [APIProcess] INFO: API shutdown complete
+2026-05-02 02:05:43,875 [MainProcess] INFO: APIProcess stopped
+2026-05-02 02:05:43,875 [MainProcess] INFO: System shut down
+2026-05-03 00:05:47,182 [MainProcess] INFO: Starting Parking Management System... 
+2026-05-03 00:05:47,202 [MainProcess] INFO: APIProcess started (PID: 5518)
+2026-05-03 00:05:47,208 [MainProcess] INFO: CamaraProcess started (PID: 5519)
+2026-05-03 00:05:47,217 [MainProcess] INFO: DetectorProcess started (PID: 5521)
+2026-05-03 00:05:47,227 [MainProcess] INFO: All processes running.
+2026-05-03 00:05:47,232 [MainProcess] INFO: Frontend: run 'npm run dev' in /frontend
+2026-05-03 00:05:47,232 [MainProcess] INFO: API:      http://localhost:8000
+2026-05-03 00:05:47,232 [MainProcess] INFO: API Docs: http://localhost:8000/docs
+2026-05-03 00:05:48,225 [APIProcess] INFO: API Starting..
+2026-05-03 00:05:48,364 [CamaraProcess] INFO: Camera process started
+2026-05-03 00:05:48,366 [CamaraProcess] INFO: Connecting to camera source: tests/test_videos/test.mp4
+2026-05-03 00:05:48,839 [DetectorProcess] INFO: Detector process started
+2026-05-03 00:05:48,926 [CamaraProcess] INFO: Camera connected successfully
+2026-05-03 00:05:48,928 [CamaraProcess] INFO: Source type   : video
+Frame interval: 0.5s (~2 frames checked/sec)
+2026-05-03 00:06:29,801 [DetectorProcess] INFO: Loading model: /home/dilshan/Desktop/praking-mgmt-system/backend/best_openvino_model
+2026-05-03 00:06:29,836 [DetectorProcess] INFO: Device      : CPU
+2026-05-03 00:06:29,905 [DetectorProcess] INFO: YOLO OpenVINO model loaded successfully
+2026-05-03 00:06:29,916 [DetectorProcess] INFO: Detector ready | state: DETECTING | cooldown: 30s
+2026-05-03 00:06:40,319 [CamaraProcess] INFO: frame skiped
+2026-05-03 00:06:40,873 [CamaraProcess] INFO: frame skiped
+2026-05-03 00:06:45,410 [CamaraProcess] INFO: Video file ended — looping back to start
+2026-05-03 00:07:35,447 [CamaraProcess] INFO: Video file ended — looping back to start
+2026-05-03 00:08:23,276 [CamaraProcess] INFO: Video file ended — looping back to start
+2026-05-03 00:09:05,738 [DetectorProcess] INFO: Plate region detected — confidence: 0.77
+2026-05-03 00:09:13,765 [CamaraProcess] INFO: Video file ended — looping back to start
+2026-05-03 00:09:18,198 [DetectorProcess] ERROR: OCR error: tesseract is not installed or it's not in your PATH. See README file for more information.
+2026-05-03 00:09:18,203 [DetectorProcess] WARNING: OCR returned empty text — skipping frame
+2026-05-03 00:09:20,080 [CamaraProcess] INFO: frame skiped
+2026-05-03 00:09:22,687 [CamaraProcess] INFO: frame skiped
+2026-05-03 00:09:25,403 [CamaraProcess] INFO: frame skiped
+2026-05-03 00:09:30,516 [CamaraProcess] INFO: frame skiped
+2026-05-03 00:09:33,021 [CamaraProcess] INFO: frame skiped
+2026-05-03 00:09:35,517 [CamaraProcess] INFO: frame skiped
+2026-05-03 00:09:41,526 [CamaraProcess] INFO: frame skiped
+2026-05-03 00:09:45,353 [CamaraProcess] INFO: frame skiped
+2026-05-03 00:10:04,037 [CamaraProcess] INFO: frame skiped
+2026-05-03 00:10:13,983 [CamaraProcess] INFO: frame skiped
+2026-05-03 00:10:25,421 [CamaraProcess] INFO: Video file ended — looping back to start
+2026-05-03 00:11:16,660 [CamaraProcess] INFO: Video file ended — looping back to start
+2026-05-03 00:12:17,913 [CamaraProcess] INFO: Video file ended — looping back to start
+2026-05-03 00:12:21,417 [CamaraProcess] INFO: Camera process interrupted
+2026-05-03 00:12:21,450 [MainProcess] INFO: Shutdown signal received (Ctrl+C)
+2026-05-03 00:12:21,514 [MainProcess] INFO: Shutting down...
+2026-05-03 00:12:21,515 [MainProcess] INFO: Stopping CameraProcess...
+2026-05-03 00:12:21,625 [MainProcess] INFO: CameraProcess stopped
+2026-05-03 00:12:21,625 [MainProcess] INFO: Stopping DetectorProcess...
+2026-05-03 00:12:21,686 [MainProcess] INFO: DetectorProcess stopped
+2026-05-03 00:12:21,687 [MainProcess] INFO: Stopping APIProcess...
+2026-05-03 00:12:22,454 [APIProcess] INFO: FastAPI shutting down
+2026-05-03 00:12:22,490 [APIProcess] INFO: API shutdown complete
+2026-05-03 00:12:22,687 [MainProcess] INFO: APIProcess stopped
+2026-05-03 00:12:22,688 [MainProcess] INFO: System shut down
+2026-05-03 00:16:11,814 [MainProcess] INFO: Starting Parking Management System... 
+2026-05-03 00:16:11,838 [MainProcess] INFO: APIProcess started (PID: 7703)
+2026-05-03 00:16:11,846 [MainProcess] INFO: CamaraProcess started (PID: 7704)
+2026-05-03 00:16:11,857 [MainProcess] INFO: DetectorProcess started (PID: 7708)
+2026-05-03 00:16:11,863 [MainProcess] INFO: All processes running.
+2026-05-03 00:16:11,863 [MainProcess] INFO: Frontend: run 'npm run dev' in /frontend
+2026-05-03 00:16:11,864 [MainProcess] INFO: API:      http://localhost:8000
+2026-05-03 00:16:11,864 [MainProcess] INFO: API Docs: http://localhost:8000/docs
+2026-05-03 00:16:12,838 [APIProcess] INFO: API Starting..
+2026-05-03 00:16:12,897 [CamaraProcess] INFO: Camera process started
+2026-05-03 00:16:12,899 [CamaraProcess] INFO: Connecting to camera source: tests/test_videos/test.mp4
+2026-05-03 00:16:13,245 [CamaraProcess] INFO: Camera connected successfully
+2026-05-03 00:16:13,246 [CamaraProcess] INFO: Source type   : video
+Frame interval: 0.5s (~2 frames checked/sec)
+2026-05-03 00:16:13,379 [DetectorProcess] INFO: Detector process started
+2026-05-03 00:16:46,796 [DetectorProcess] INFO: Loading model: /home/dilshan/Desktop/praking-mgmt-system/backend/best_openvino_model
+2026-05-03 00:16:46,867 [DetectorProcess] INFO: Device      : CPU
+2026-05-03 00:16:46,996 [DetectorProcess] INFO: YOLO OpenVINO model loaded successfully
+2026-05-03 00:16:47,021 [DetectorProcess] INFO: Detector ready | state: DETECTING | cooldown: 30s
+2026-05-03 00:16:47,169 [CamaraProcess] INFO: frame skiped
+2026-05-03 00:17:03,575 [CamaraProcess] INFO: frame skiped
+2026-05-03 00:17:05,861 [CamaraProcess] INFO: frame skiped
+2026-05-03 00:17:13,295 [DetectorProcess] INFO: Plate region detected — confidence: 0.76
+2026-05-03 00:17:15,311 [CamaraProcess] INFO: Video file ended — looping back to start
+2026-05-03 00:18:05,489 [CamaraProcess] INFO: Video file ended — looping back to start
+2026-05-03 00:18:53,319 [CamaraProcess] INFO: Video file ended — looping back to start
+2026-05-03 00:19:42,624 [CamaraProcess] INFO: Video file ended — looping back to start
+2026-05-03 00:20:31,762 [CamaraProcess] INFO: Video file ended — looping back to start
+2026-05-03 00:21:18,850 [CamaraProcess] INFO: Video file ended — looping back to start
+2026-05-03 00:21:44,829 [MainProcess] INFO: Shutdown signal received (Ctrl+C)
+2026-05-03 00:21:44,850 [MainProcess] INFO: Shutting down...
+2026-05-03 00:21:44,852 [MainProcess] INFO: Stopping CameraProcess...
+2026-05-03 00:21:44,925 [MainProcess] INFO: CameraProcess stopped
+2026-05-03 00:21:44,926 [MainProcess] INFO: Stopping DetectorProcess...
+2026-05-03 00:21:44,999 [MainProcess] INFO: DetectorProcess stopped
+2026-05-03 00:21:45,000 [MainProcess] INFO: Stopping APIProcess...
+2026-05-03 00:21:45,085 [APIProcess] INFO: FastAPI shutting down
+2026-05-03 00:21:45,092 [APIProcess] INFO: API shutdown complete
+2026-05-03 00:21:45,152 [MainProcess] INFO: APIProcess stopped
+2026-05-03 00:21:45,153 [MainProcess] INFO: System shut down
+2026-05-03 00:23:07,801 [MainProcess] INFO: Starting Parking Management System... 
+2026-05-03 00:23:07,817 [MainProcess] INFO: APIProcess started (PID: 8504)
+2026-05-03 00:23:07,824 [MainProcess] INFO: CamaraProcess started (PID: 8505)
+2026-05-03 00:23:07,833 [MainProcess] INFO: DetectorProcess started (PID: 8507)
+2026-05-03 00:23:07,836 [MainProcess] INFO: All processes running.
+2026-05-03 00:23:07,841 [MainProcess] INFO: Frontend: run 'npm run dev' in /frontend
+2026-05-03 00:23:07,842 [MainProcess] INFO: API:      http://localhost:8000
+2026-05-03 00:23:07,843 [MainProcess] INFO: API Docs: http://localhost:8000/docs
+2026-05-03 00:23:08,631 [APIProcess] INFO: API Starting..
+2026-05-03 00:23:08,867 [CamaraProcess] INFO: Camera process started
+2026-05-03 00:23:08,869 [CamaraProcess] INFO: Connecting to camera source: tests/test_videos/test.mp4
+2026-05-03 00:23:09,209 [CamaraProcess] INFO: Camera connected successfully
+2026-05-03 00:23:09,210 [CamaraProcess] INFO: Source type   : video
+Frame interval: 0.5s (~2 frames checked/sec)
+2026-05-03 00:23:09,355 [DetectorProcess] INFO: Detector process started
+2026-05-03 00:23:32,290 [DetectorProcess] INFO: Loading model: /home/dilshan/Desktop/praking-mgmt-system/backend/best_openvino_model
+2026-05-03 00:23:32,291 [DetectorProcess] INFO: Device      : CPU
+2026-05-03 00:23:32,321 [DetectorProcess] INFO: YOLO OpenVINO model loaded successfully
+2026-05-03 00:23:32,325 [DetectorProcess] INFO: Detector ready | state: DETECTING | cooldown: 30s
+2026-05-03 00:23:40,413 [CamaraProcess] INFO: frame skiped
+2026-05-03 00:23:43,382 [CamaraProcess] INFO: frame skiped
+2026-05-03 00:23:48,040 [CamaraProcess] INFO: frame skiped
+2026-05-03 00:23:51,001 [CamaraProcess] INFO: frame skiped
+2026-05-03 00:23:58,895 [CamaraProcess] INFO: frame skiped
+2026-05-03 00:24:01,346 [CamaraProcess] INFO: frame skiped
+2026-05-03 00:24:12,075 [CamaraProcess] INFO: Video file ended — looping back to start
+2026-05-03 00:25:00,971 [CamaraProcess] INFO: Video file ended — looping back to start
+2026-05-03 00:25:17,392 [DetectorProcess] INFO: Plate region detected — confidence: 0.76
+2026-05-03 00:25:18,632 [DetectorProcess] ERROR: OCR error: tesseract is not installed or it's not in your PATH. See README file for more information.
+2026-05-03 00:25:18,633 [DetectorProcess] WARNING: OCR returned empty text — skipping frame
+2026-05-03 00:25:20,263 [CamaraProcess] INFO: frame skiped
+2026-05-03 00:25:25,042 [CamaraProcess] INFO: frame skiped
+2026-05-03 00:25:30,028 [MainProcess] INFO: Shutdown signal received (Ctrl+C)
+2026-05-03 00:25:30,037 [MainProcess] INFO: Shutting down...
+2026-05-03 00:25:30,038 [MainProcess] INFO: Stopping CameraProcess...
+2026-05-03 00:25:30,126 [MainProcess] INFO: CameraProcess stopped
+2026-05-03 00:25:30,131 [MainProcess] INFO: Stopping DetectorProcess...
+2026-05-03 00:25:30,196 [MainProcess] INFO: DetectorProcess stopped
+2026-05-03 00:25:30,196 [MainProcess] INFO: Stopping APIProcess...
+2026-05-03 00:25:30,208 [APIProcess] INFO: FastAPI shutting down
+2026-05-03 00:25:30,209 [APIProcess] INFO: API shutdown complete
+2026-05-03 00:25:30,222 [MainProcess] INFO: APIProcess stopped
+2026-05-03 00:25:30,222 [MainProcess] INFO: System shut down
+2026-05-03 00:30:27,244 [MainProcess] INFO: Starting Parking Management System... 
+2026-05-03 00:30:27,263 [MainProcess] INFO: APIProcess started (PID: 9386)
+2026-05-03 00:30:27,271 [MainProcess] INFO: CamaraProcess started (PID: 9387)
+2026-05-03 00:30:27,282 [MainProcess] INFO: DetectorProcess started (PID: 9390)
+2026-05-03 00:30:27,283 [MainProcess] INFO: All processes running.
+2026-05-03 00:30:27,284 [MainProcess] INFO: Frontend: run 'npm run dev' in /frontend
+2026-05-03 00:30:27,285 [MainProcess] INFO: API:      http://localhost:8000
+2026-05-03 00:30:27,285 [MainProcess] INFO: API Docs: http://localhost:8000/docs
+2026-05-03 00:30:28,180 [APIProcess] INFO: API Starting..
+2026-05-03 00:30:28,371 [CamaraProcess] INFO: Camera process started
+2026-05-03 00:30:28,373 [CamaraProcess] INFO: Connecting to camera source: tests/test_videos/test.mp4
+2026-05-03 00:30:28,746 [CamaraProcess] INFO: Camera connected successfully
+2026-05-03 00:30:28,747 [CamaraProcess] INFO: Source type   : video
+Frame interval: 0.5s (~2 frames checked/sec)
+2026-05-03 00:30:28,873 [DetectorProcess] INFO: Detector process started
+2026-05-03 00:30:56,195 [DetectorProcess] INFO: Loading model: /home/dilshan/Desktop/praking-mgmt-system/backend/best_openvino_model
+2026-05-03 00:30:56,195 [DetectorProcess] INFO: Device      : CPU
+2026-05-03 00:30:56,268 [DetectorProcess] INFO: YOLO OpenVINO model loaded successfully
+2026-05-03 00:30:56,275 [DetectorProcess] INFO: Detector ready | state: DETECTING | cooldown: 30s
+2026-05-03 00:31:05,958 [CamaraProcess] INFO: frame skiped
+2026-05-03 00:31:13,115 [CamaraProcess] INFO: frame skiped
+2026-05-03 00:31:22,724 [CamaraProcess] INFO: Video file ended — looping back to start
+2026-05-03 00:31:31,373 [DetectorProcess] ERROR: Detector unexpected error: OpenCV(4.13.0) :-1: error: (-5:Bad argument) in function 'imshow'
+> Overload resolution failed:
+>  - imshow() missing required argument 'mat' (pos 2)
+>  - imshow() missing required argument 'mat' (pos 2)
+>  - imshow() missing required argument 'mat' (pos 2)
+
+2026-05-03 00:31:31,379 [DetectorProcess] INFO: Detector process stopped
+2026-05-03 00:31:32,304 [MainProcess] WARNING: Detector crashed — retrying...
+2026-05-03 00:31:32,317 [MainProcess] INFO: DetectorProcess zombie cleaned up
+2026-05-03 00:31:32,401 [MainProcess] INFO: DetectorProcess started (PID: 9622)
+2026-05-03 00:31:33,089 [DetectorProcess] INFO: Detector process started
+2026-05-03 00:31:57,602 [DetectorProcess] INFO: Loading model: /home/dilshan/Desktop/praking-mgmt-system/backend/best_openvino_model
+2026-05-03 00:31:57,612 [DetectorProcess] INFO: Device      : CPU
+2026-05-03 00:31:57,678 [DetectorProcess] INFO: YOLO OpenVINO model loaded successfully
+2026-05-03 00:31:57,686 [DetectorProcess] INFO: Detector ready | state: DETECTING | cooldown: 30s
+2026-05-03 00:32:01,460 [CamaraProcess] INFO: frame skiped
+2026-05-03 00:32:04,961 [CamaraProcess] INFO: frame skiped
+2026-05-03 00:32:11,515 [CamaraProcess] INFO: frame skiped
+2026-05-03 00:32:14,556 [DetectorProcess] ERROR: Detector unexpected error: OpenCV(4.13.0) :-1: error: (-5:Bad argument) in function 'imshow'
+> Overload resolution failed:
+>  - imshow() missing required argument 'mat' (pos 2)
+>  - imshow() missing required argument 'mat' (pos 2)
+>  - imshow() missing required argument 'mat' (pos 2)
+
+2026-05-03 00:32:14,557 [DetectorProcess] INFO: Detector process stopped
+2026-05-03 00:32:17,421 [MainProcess] WARNING: Detector crashed — retrying...
+2026-05-03 00:32:17,426 [MainProcess] INFO: DetectorProcess zombie cleaned up
+2026-05-03 00:32:17,445 [MainProcess] INFO: DetectorProcess started (PID: 9830)
+2026-05-03 00:32:18,094 [DetectorProcess] INFO: Detector process started
+2026-05-03 00:32:21,855 [CamaraProcess] INFO: Video file ended — looping back to start
+2026-05-03 00:32:42,199 [MainProcess] INFO: Shutdown signal received (Ctrl+C)
+2026-05-03 00:32:42,207 [MainProcess] INFO: Shutting down...
+2026-05-03 00:32:42,207 [MainProcess] INFO: Stopping CameraProcess...
+2026-05-03 00:32:42,259 [MainProcess] INFO: CameraProcess stopped
+2026-05-03 00:32:42,260 [MainProcess] INFO: Stopping DetectorProcess...
+2026-05-03 00:32:42,306 [MainProcess] INFO: DetectorProcess stopped
+2026-05-03 00:32:42,307 [MainProcess] INFO: Stopping APIProcess...
+2026-05-03 00:32:42,477 [APIProcess] INFO: FastAPI shutting down
+2026-05-03 00:32:42,481 [APIProcess] INFO: API shutdown complete
+2026-05-03 00:32:42,503 [MainProcess] INFO: APIProcess stopped
+2026-05-03 00:32:42,504 [MainProcess] INFO: System shut down
+2026-05-03 00:42:57,433 [MainProcess] INFO: Starting Parking Management System... 
+2026-05-03 00:42:57,457 [MainProcess] INFO: APIProcess started (PID: 10236)
+2026-05-03 00:42:57,465 [MainProcess] INFO: CamaraProcess started (PID: 10237)
+2026-05-03 00:42:57,471 [MainProcess] INFO: DetectorProcess started (PID: 10239)
+2026-05-03 00:42:57,474 [MainProcess] INFO: All processes running.
+2026-05-03 00:42:57,475 [MainProcess] INFO: Frontend: run 'npm run dev' in /frontend
+2026-05-03 00:42:57,475 [MainProcess] INFO: API:      http://localhost:8000
+2026-05-03 00:42:57,476 [MainProcess] INFO: API Docs: http://localhost:8000/docs
+2026-05-03 00:42:58,287 [APIProcess] INFO: API Starting..
+2026-05-03 00:42:58,483 [CamaraProcess] INFO: Camera process started
+2026-05-03 00:42:58,484 [CamaraProcess] INFO: Connecting to camera source: tests/test_videos/test.mp4
+2026-05-03 00:42:58,812 [CamaraProcess] INFO: Camera connected successfully
+2026-05-03 00:42:58,813 [CamaraProcess] INFO: Source type   : video
+Frame interval: 0.5s (~2 frames checked/sec)
+2026-05-03 00:42:58,994 [DetectorProcess] INFO: Detector process started
+2026-05-03 00:43:20,404 [DetectorProcess] INFO: Loading model: /home/dilshan/Desktop/praking-mgmt-system/backend/best_openvino_model
+2026-05-03 00:43:20,404 [DetectorProcess] INFO: Device      : CPU
+2026-05-03 00:43:20,466 [DetectorProcess] INFO: YOLO OpenVINO model loaded successfully
+2026-05-03 00:43:20,471 [DetectorProcess] INFO: Detector ready | state: DETECTING | cooldown: 30s
+2026-05-03 00:43:33,662 [CamaraProcess] INFO: frame skiped
+2026-05-03 00:43:43,396 [CamaraProcess] INFO: frame skiped
+2026-05-03 00:43:48,179 [CamaraProcess] INFO: frame skiped
+2026-05-03 00:43:53,598 [DetectorProcess] INFO: Plate region detected — confidence: 0.82
+2026-05-03 00:44:00,063 [CamaraProcess] INFO: Video file ended — looping back to start
+2026-05-03 00:44:30,231 [CamaraProcess] INFO: Camera process interrupted
+2026-05-03 00:44:30,248 [MainProcess] INFO: Shutdown signal received (Ctrl+C)
+2026-05-03 00:44:30,266 [MainProcess] INFO: Shutting down...
+2026-05-03 00:44:30,266 [MainProcess] INFO: Stopping CameraProcess...
+2026-05-03 00:44:30,327 [MainProcess] INFO: CameraProcess stopped
+2026-05-03 00:44:30,327 [MainProcess] INFO: Stopping DetectorProcess...
+2026-05-03 00:44:30,400 [MainProcess] INFO: DetectorProcess stopped
+2026-05-03 00:44:30,400 [MainProcess] INFO: Stopping APIProcess...
+2026-05-03 00:44:30,589 [APIProcess] INFO: FastAPI shutting down
+2026-05-03 00:44:30,595 [APIProcess] INFO: API shutdown complete
+2026-05-03 00:44:30,620 [MainProcess] INFO: APIProcess stopped
+2026-05-03 00:44:30,621 [MainProcess] INFO: System shut down
