@@ -141,7 +141,9 @@ def camera_process(frame_queue, status_queue):
 
             # ── Throttle to frame_interval ─────
             now = time.time()
-            if now - last_frame_time < frame_interval:
+            elapsed = now - last_frame_time
+            if elapsed < frame_interval:
+                time.sleep(frame_interval - elapsed)
                 continue
 
             last_frame_time = now

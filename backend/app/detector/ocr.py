@@ -1,136 +1,182 @@
-import cv2
-import re
 import logging
 import numpy as np
-import os
+import cv2
+import re
 
 log = logging.getLogger(__name__)
 
-OCR_ENGINE = os.getenv("OCR_ENGINE", "easyocr")
+# ~~~~~~~Initialize the RapidOCR
+def init_ocr():
+    try:
+        from rapidocr_openvino import RapidOCR
+        log.info("starting the RapidOCR")
 
-# ─────────────────────────────────────────
-# EasyOCR reader
-# initialized once — expensive to reload
-# ─────────────────────────────────────────
-_easyocr_reader = None
+        # For low-end PCs, you can optionally pass parameters here if needed
+        ocr = RapidOCR()
+        log.info("RapidOCR initialized")
+        return ocr
 
-def get_easyocr_reader():
-    global _easyocr_reader
-    if _easyocr_reader is None:
-        import easyocr
-        log.info("Initializing EasyOCR (CPU mode)...")
-        _easyocr_reader = easyocr.Reader(
-            ["en"],
-            gpu=False,
-        )
-        log.info("EasyOCR ready")
-    return _easyocr_reader
+    except Exception as e:
+        log.warning(f"RapidOCR initialized failed {e}")
+        return None
+
+
+def warmup_ocr(ocr) -> bool:
+    try:
+        log.info("Warming up RapidOCR...")
+
+        # ── Create dummy plate image ───────
+        dummy = np.ones((64, 200, 3), dtype=np.uint8) * 255
+
+        # ── Run dummy inference ────────────
+        _ = ocr(dummy)
+
+        log.info("RapidOCR warm up complete ✓")
+        return True
+
+    except Exception as e:
+        log.warning(f"RapidOCR warm up failed: {e}")
+        return False
 
 
 # ─────────────────────────────────────────
 # Preprocess plate image before OCR
 # ─────────────────────────────────────────
 def preprocess_plate(image: np.ndarray) -> np.ndarray:
+    try:
+        if image is None or image.size == 0:
+            log.warning("Empty Image passed to preprocess")
+            return image
 
-    # ── Resize if too small ────────────────
-    h, w = image.shape[:2]
-    if h < 100:
-        scale = 100 / h
-        image = cv2.resize(
-            image,
-            (int(w * scale), 100),
-            interpolation=cv2.INTER_CUBIC
+        h, w = image.shape[:2]
+
+        # ── Resize if too small ────────────
+        if h < 64:
+            scale = 64 / h
+            new_w = int(w * scale)
+            image = cv2.resize(image, (new_w, 64), interpolation=cv2.INTER_CUBIC)
+            
+        # ── Resize if too large ────────────
+        if h > 400:
+            scale = 400 / h
+            new_w = int(w * scale)
+            image = cv2.resize(image, (new_w, 400), interpolation=cv2.INTER_AREA)
+
+        # ── Convert to grayscale ───────────
+        if len(image.shape) == 3:
+            gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+        else:
+            gray = image
+
+        # ── Denoise ────────────────────────
+        denoised = cv2.fastNlMeansDenoising(
+            gray, h=3, templateWindowSize=7, searchWindowSize=21
         )
 
-    # ── Grayscale ──────────────────────────
-    gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+        # ── Contrast enhancement (CLAHE) ───
+        clahe = cv2.createCLAHE(clipLimit=2.0, tileGridSize=(8, 8))
+        contrasted = clahe.apply(denoised)
 
-    # ── Denoise ────────────────────────────
-    denoised = cv2.fastNlMeansDenoising(gray, h=10)
+        # ── CRITICAL FIX: Removed Otsu Thresholding ───
+        # Deep learning models handle raw gradients and textures much better 
+        # than strict binary black-and-white cuts.
 
-    # ── Contrast ───────────────────────────
-    clahe      = cv2.createCLAHE(
-                     clipLimit=2.0,
-                     tileGridSize=(8, 8)
-                 )
-    contrasted = clahe.apply(denoised)
+        # ── Convert back to BGR ────────────
+        # RapidOCR expects a 3-channel image
+        result = cv2.cvtColor(contrasted, cv2.COLOR_GRAY2BGR)
+        return result
 
-    # ── Threshold ──────────────────────────
-    _, thresh = cv2.threshold(
-        contrasted, 0, 255,
-        cv2.THRESH_BINARY + cv2.THRESH_OTSU
-    )
-
-    return thresh
+    except Exception as e:
+        log.error(f"Preprocessing error: {e}")
+        return image
 
 
 # ─────────────────────────────────────────
 # Clean raw OCR output
-# normalizes to Sri Lankan plate format
 # ─────────────────────────────────────────
 def clean_plate_text(raw: str) -> str:
     if not raw:
         return ""
 
+    # ── Uppercase ──────────────────────────
     text = raw.upper().strip()
+
+    # ── Remove unwanted characters ─────────
     text = re.sub(r"[^A-Z0-9\s\-]", "", text)
+
+    # ── Collapse multiple spaces ───────────
     text = re.sub(r"\s+", " ", text).strip()
+
+    # ── Replace spaces with hyphen ─────────
     text = text.replace(" ", "-")
+
+    # ── Remove duplicate hyphens ───────────
     text = re.sub(r"-+", "-", text)
+
+    # ── Strip leading trailing hyphens ─────
     text = text.strip("-")
+
+    # ── Validate minimum length ────────────
+    if len(text) < 4:
+        log.debug(f"Plate text too short after cleaning: '{text}'")
+        return ""
 
     return text
 
 
-# ─────────────────────────────────────────
-# EasyOCR
-# ─────────────────────────────────────────
-def extract_with_easyocr(image: np.ndarray) -> str:
-    reader  = get_easyocr_reader()
-    results = reader.readtext(image)
-
-    if not results:
-        log.warning("No text detected")
-        return ""
-
-    results_sorted = sorted(
-        results,
-        key=lambda r: r[0][0][1]
-    )
-    return " ".join([r[1] for r in results_sorted])
-
-
-def extract_with_tesseract(image: np.ndarray) -> str:
-    import pytesseract
-    config = (
-        "--psm 8 -c tessedit_char_whitelist="
-        "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
-    )
-    return pytesseract.image_to_string(image, config=config)
-
-# ─────────────────────────────────────────
-# Main OCR entry point
-# called by detect.py
-# ─────────────────────────────────────────
-def extract_plate_text(cropped_plate: np.ndarray) -> str:
+def extract_plate_text(ocr, cropped_plate: np.ndarray) -> str:
     try:
+        if cropped_plate is None or cropped_plate.size == 0:
+            log.warning("Empty cropped plate passed to OCR")
+            return ""
+
+        # ── Preprocess ─────────────────────
         processed = preprocess_plate(cropped_plate)
-        
-        if OCR_ENGINE == "tesseract":
-            raw = extract_with_tesseract(cropped_plate)
-        else:
-            raw = extract_with_easyocr(processed)
 
+        # ── Run RapidOCR ───────────────────
+        result, elapse = ocr(processed)
+        print(result,elapse)
 
-        cleaned = clean_plate_text(raw)
+        # ── FIX: Safe calculation of elapse time if returned as a list ──
+        total_elapse = sum(elapse) if isinstance(elapse, list) else elapse
+        log.debug(f"RapidOCR inference time: {total_elapse:.3f}s")
+
+        if not result:
+            log.debug("RapidOCR returned no result")
+            return ""
+
+        # ── FIX: Robust parser handling different RapidOCR output layouts ──
+        raw_text = ""
+        if isinstance(result, list) and len(result) > 0:
+            # Check if it has internal bbox coordinate tracking arrays
+            if isinstance(result[0], list) and len(result[0]) == 3 and isinstance(result[0][0], list):
+                # Standard format with layout detection active
+                result_sorted = sorted(
+                    result, key=lambda r: r[0][0][1] if (r[0] and len(r[0]) > 0) else 0
+                )
+                raw_text = " ".join([str(line[1]) for line in result_sorted if line[1]])
+            else:
+                # Flat format (e.g. if text detection is skipped)
+                text_segments = []
+                for item in result:
+                    if isinstance(item, (list, tuple)) and len(item) > 0:
+                        text_segments.append(str(item[0]))
+                    elif isinstance(item, str):
+                        text_segments.append(item)
+                raw_text = " ".join(text_segments)
+
+        log.debug(f"RapidOCR raw text: '{raw_text}'")
+
+        # ── Clean and return ───────────────
+        cleaned = clean_plate_text(raw_text)
 
         if cleaned:
-            log.debug(f"OCR: '{raw}' → '{cleaned}'")
+            log.info(f"OCR: '{raw_text}' → '{cleaned}'")
         else:
-            log.debug(f"OCR no result from: '{raw}'")
+            log.debug(f"OCR cleaning returned empty from raw: '{raw_text}'")
 
         return cleaned
 
     except Exception as e:
-        log.error(f"OCR error: {e}")
+        log.error(f"OCR extraction error: {e}", exc_info=True)
         return ""

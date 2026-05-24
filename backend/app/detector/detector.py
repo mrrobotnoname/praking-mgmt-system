@@ -14,7 +14,7 @@ log = logging.getLogger(__name__)
 # ─────────────────────────────────────────
 class DetectorState:
     DETECTING = "DETECTING"
-    PAUSED = "PAUSED"
+    PAUSED    = "PAUSED"
 
 
 # ─────────────────────────────────────────
@@ -30,39 +30,38 @@ class ControlSignal:
 # ─────────────────────────────────────────
 def get_detector_config():
     return {
-        "model_path": os.getenv(
-            "MODEL_PATH"
-        ),
-        "device": os.getenv(
-            "DETECTOR_DEVICE",
-            "AUTO:GPU,CPU"
-        ),
-        "confidence_thresh": float(os.getenv(
-            "DETECTOR_CONFIDENCE_THRESH",
-            "0.75"
-        )),
-        "iou_thresh": float(os.getenv(
-            "DETECTOR_IOU_THRESH",
-            "0.45"
-        )),
+        "model_path"           : os.getenv(
+                                    "DETECTOR_MODEL_PATH",
+                                    "ml/yolo11n_openvino_model"
+                                  ),
+        "device"               : os.getenv(
+                                    "DETECTOR_DEVICE",
+                                    "AUTO:GPU,CPU"
+                                  ),
+        "confidence_thresh"    : float(os.getenv(
+                                    "DETECTOR_CONFIDENCE_THRESH",
+                                    "0.75"
+                                  )),
+        "iou_thresh"           : float(os.getenv(
+                                    "DETECTOR_IOU_THRESH",
+                                    "0.45"
+                                  )),
         "post_confirm_cooldown": int(os.getenv(
-            "POST_CONFIRM_COOLDOWN",
-            "30"
-        )),
+                                    "POST_CONFIRM_COOLDOWN",
+                                    "10"
+                                  )),
     }
 
 
 # ─────────────────────────────────────────
-# Report status to FastAPI
-# via status_queue
-# never raises — status reporting must
-# never crash the detector
+# Report status to FastAPI via status_queue
+# never raises — must never crash detector
 # ─────────────────────────────────────────
 def report_status(status_queue, status, message):
     try:
         status_queue.put_nowait({
-            "source": "DetectorProcess",
-            "status": status,
+            "source" : "DetectorProcess",
+            "status" : status,
             "message": message
         })
     except Exception:
@@ -71,20 +70,29 @@ def report_status(status_queue, status, message):
 
 # ─────────────────────────────────────────
 # Load YOLO OpenVINO model
-# exit(2) for unrecoverable errors
-# exit(1) for recoverable errors
+#
+# exit codes:
+#   exit(2) → unrecoverable
+#             model missing
+#             package missing
+#             run.py will NOT retry
+#
+#   exit(1) → recoverable
+#             unexpected error
+#             run.py will retry forever
 # ─────────────────────────────────────────
-def load_model(config: dict, status_queue):
+def load_yolo_model(config: dict, status_queue):
     try:
         # ── Check model path exists ────────
         if not os.path.exists(config["model_path"]):
             log.error(
-                f"Model not found: {config['model_path']}"
+                f"YOLO model not found: "
+                f"{config['model_path']}"
             )
             report_status(
                 status_queue,
                 "OFFLINE",
-                f"Model not found at "
+                f"YOLO model not found at "
                 f"{config['model_path']}. "
                 f"Manual entry required."
             )
@@ -92,22 +100,21 @@ def load_model(config: dict, status_queue):
 
         from ultralytics import YOLO
 
-        log.info(f"Loading model: {config['model_path']}")
-        log.info(f"Device      : {config['device']}")
+        log.info(
+            f"Loading YOLO model: "
+            f"{config['model_path']}"
+        )
+        log.info(f"Device: {config['device']}")
 
         model = YOLO(config["model_path"])
 
-        log.info("YOLO OpenVINO model loaded successfully")
-        report_status(
-            status_queue,
-            "ONLINE",
-            "Detector online and ready"
-        )
+        log.info("YOLO model loaded ✓")
         return model
 
     except ImportError:
         log.error(
-            "ultralytics not installed — unrecoverable"
+            "ultralytics not installed — "
+            "unrecoverable"
         )
         report_status(
             status_queue,
@@ -118,13 +125,13 @@ def load_model(config: dict, status_queue):
         sys.exit(2)         # unrecoverable
 
     except Exception as e:
-        log.error(f"Failed to load model: {e}")
+        log.error(f"YOLO load failed: {e}")
         report_status(
             status_queue,
             "OFFLINE",
-            f"Model load failed: {e}"
+            f"YOLO load failed: {e}"
         )
-        sys.exit(1)         # recoverable — run.py will retry
+        sys.exit(1)         # recoverable
 
 
 # ─────────────────────────────────────────
@@ -132,35 +139,42 @@ def load_model(config: dict, status_queue):
 # returns cropped plate + confidence
 # returns None, 0.0 if no plate found
 # ─────────────────────────────────────────
-def detect_plate(model, frame: np.ndarray, config: dict):
+def detect_plate(
+    model,
+    frame: np.ndarray,
+    config: dict
+):
     try:
         results = model(
             frame,
-            device=config["device"],
-            conf=config["confidence_thresh"],
-            iou=config["iou_thresh"],
-            verbose=False     # suppress YOLO console spam
+            device  = config["device"],
+            conf    = config["confidence_thresh"],
+            iou     = config["iou_thresh"],
+            verbose = False
         )
 
-        if not results or len(results[0].boxes) == 0:
+        if not results or \
+           len(results[0].boxes) == 0:
             return None, 0.0
 
         # ── Get highest confidence box ─────
-        boxes = results[0].boxes
+        boxes       = results[0].boxes
         confidences = boxes.conf.tolist()
-        best_idx = confidences.index(max(confidences))
-        best_conf = confidences[best_idx]
-        best_box = boxes.xyxy[best_idx].tolist()
+        best_idx    = confidences.index(
+                          max(confidences)
+                      )
+        best_conf   = confidences[best_idx]
+        best_box    = boxes.xyxy[best_idx].tolist()
 
         x1, y1, x2, y2 = [int(c) for c in best_box]
 
         # ── Small padding around plate ─────
-        pad = 5
+        pad  = 5
         h, w = frame.shape[:2]
-        x1 = max(0, x1 - pad)
-        y1 = max(0, y1 - pad)
-        x2 = min(w, x2 + pad)
-        y2 = min(h, y2 + pad)
+        x1   = max(0, x1 - pad)
+        y1   = max(0, y1 - pad)
+        x2   = min(w, x2 + pad)
+        y2   = min(h, y2 + pad)
 
         cropped_plate = frame[y1:y2, x1:x2]
         return cropped_plate, best_conf
@@ -172,7 +186,8 @@ def detect_plate(model, frame: np.ndarray, config: dict):
 
 # ─────────────────────────────────────────
 # Encode cropped plate to base64 JPEG
-# for sending over WebSocket to dashboard
+# always sent to dashboard
+# guard sees image even if OCR fails
 # ─────────────────────────────────────────
 def encode_frame(frame: np.ndarray) -> str:
     import base64
@@ -181,7 +196,9 @@ def encode_frame(frame: np.ndarray) -> str:
             ".jpg", frame,
             [cv2.IMWRITE_JPEG_QUALITY, 60]
         )
-        return base64.b64encode(buffer).decode("utf-8")
+        return base64.b64encode(
+            buffer
+        ).decode("utf-8")
     except Exception as e:
         log.error(f"Frame encode error: {e}")
         return ""
@@ -191,13 +208,19 @@ def encode_frame(frame: np.ndarray) -> str:
 # Check control_queue for signals
 # non blocking — returns None if empty
 # ─────────────────────────────────────────
-def check_control_queue(control_queue) -> str | None:
+def check_control_queue(
+    control_queue
+) -> str | None:
     try:
         return control_queue.get_nowait()
     except queue.Empty:
         return None
-    except (OSError, EOFError, BrokenPipeError) as e:
-        log.error(f"Control queue pipe error: {e}")
+    except (
+        OSError,
+        EOFError,
+        BrokenPipeError
+    ) as e:
+        log.error(f"Control queue error: {e}")
         return None
     except Exception:
         return None
@@ -228,13 +251,9 @@ def detector_process(
 ):
     # ── Setup logging ──────────────────────
     logging.basicConfig(
-        level=logging.INFO,
-        format="%(asctime)s [DetectorProcess] "
-        "%(levelname)s: %(message)s",
-        handlers=[
-            logging.FileHandler("backend/backend.log"),
-            logging.StreamHandler(sys.stdout)
-        ]
+        level  = logging.INFO,
+        format = "%(asctime)s [DetectorProcess] "
+                 "%(levelname)s: %(message)s"
     )
 
     log.info("Detector process started")
@@ -242,23 +261,77 @@ def detector_process(
     # ── Load config ────────────────────────
     config = get_detector_config()
 
-    # ── Load model ─────────────────────────
-    # exits with code 1 or 2 on failure
-    # run.py handles restart or stop
-    model = load_model(config, status_queue)
+    # ─────────────────────────────────────
+    # STEP 1 — Load YOLO model
+    #
+    # exit(2) if model missing or
+    # package not installed
+    # exit(1) if unexpected error
+    # detector is useless without YOLO
+    # ─────────────────────────────────────
+    log.info("Step 1: Loading YOLO model...")
 
-    # ── State ──────────────────────────────
+    yolo_model = load_yolo_model(
+        config,
+        status_queue
+    )
+
+    log.info("Step 1: YOLO ready ✓")
+
+    # ─────────────────────────────────────
+    # STEP 2 — Load RapidOCR
+    #
+    # init_ocr() defined in ocr.py
+    # handles all RapidOCR internals
+    # returns None if fails — no exit
+    # guard enters plate manually if
+    # OCR unavailable
+    # ─────────────────────────────────────
+    log.info("Step 2: Loading RapidOCR...")
+
+    from app.detector.ocr import (
+        init_ocr,
+        warmup_ocr,
+        extract_plate_text
+    )
+
+    ocr_model = init_ocr()
+
+    if ocr_model is not None:
+        # ── Warm up before loop starts ─────
+        warmup_ocr(ocr_model)
+        ocr_available = True
+        log.info("Step 2: RapidOCR ready ✓")
+    else:
+        ocr_available = False
+        log.warning(
+            "Step 2: RapidOCR unavailable — "
+            "guard manual entry only"
+        )
+        report_status(
+            status_queue,
+            "WARNING",
+            "OCR unavailable. "
+            "Guard must enter plate manually."
+        )
+
+    # ─────────────────────────────────────
+    # STEP 3 — Report ready
+    # both models loaded
+    # ready to start detection loop
+    # ─────────────────────────────────────
+    report_status(
+        status_queue,
+        "ONLINE",
+        "Detector ready — "
+        f"OCR: "
+        f"{'available' if ocr_available else 'unavailable'}"
+    )
+
+    # ── Initial state ──────────────────────
     state = DetectorState.DETECTING
 
-    # ── Post confirm cooldown tracking ─────
-    # after guard confirms a plate we ignore
-    # the same plate for N seconds so the
-    # vehicle has time to clear the gate
-    last_confirmed_plate = None
-    last_confirmed_time = 0.0
-    cooldown = config["post_confirm_cooldown"]
 
-    # ── Report initial state ───────────────
     report_status(
         status_queue,
         "DETECTING",
@@ -266,9 +339,8 @@ def detector_process(
     )
 
     log.info(
-        f"Detector ready | "
-        f"state: {state} | "
-        f"cooldown: {cooldown}s"
+        f"Detection loop started | "
+        f"OCR: {'on' if ocr_available else 'off'}  "
     )
 
     try:
@@ -276,43 +348,40 @@ def detector_process(
 
             # ──────────────────────────────
             # Check control_queue first
-            # on every loop iteration
+            # every loop iteration
             # regardless of state
             # ──────────────────────────────
-            signal = check_control_queue(control_queue)
+            signal = check_control_queue(
+                control_queue
+            )
 
             if signal == ControlSignal.RESUME:
                 log.info(
-                    f"RESUME received — "
-                    f"resuming detection | "
-                    f"confirmed plate: {last_confirmed_plate}"
+                    "RESUME received — "
+                    "resuming detection"
                 )
-
                 # ── Start cooldown for
-                # confirmed plate ──────────
+                # last confirmed plate ──────
                 last_confirmed_time = time.time()
 
-                # ── Resume detecting ───────
                 state = DetectorState.DETECTING
-
-                # ── Drain stale frames ─────
-                # frames that built up
-                # while detector was paused
                 drain_frame_queue(frame_queue)
 
                 report_status(
                     status_queue,
                     "DETECTING",
-                    "Guard confirmed — detector resumed"
+                    "Guard confirmed — "
+                    "detector resumed"
                 )
 
             # ──────────────────────────────
             # PAUSED
-            # drain frames — wait for RESUME
+            # drain frames
+            # wait for RESUME signal
             # ──────────────────────────────
             if state == DetectorState.PAUSED:
                 drain_frame_queue(frame_queue)
-                time.sleep(0.1)     # avoid busy loop
+                time.sleep(0.1)
                 continue
 
             # ──────────────────────────────
@@ -323,107 +392,130 @@ def detector_process(
                 frame = frame_queue.get(timeout=1.0)
 
             except queue.Empty:
-                continue    # no frame yet — keep waiting
+                continue
 
-            except (OSError, EOFError, BrokenPipeError) as e:
-                # camera process may have died mid put()
-                log.error(f"Frame queue pipe error: {e}")
+            except (
+                OSError,
+                EOFError,
+                BrokenPipeError
+            ) as e:
+                log.error(
+                    f"Frame queue pipe error: {e}"
+                )
                 time.sleep(1.0)
                 continue
 
             except Exception as e:
-                log.error(f"Frame queue error: {e}")
+                log.error(
+                    f"Frame queue error: {e}"
+                )
                 time.sleep(1.0)
                 continue
 
-            # ── Run YOLO plate detection ───
+            # ──────────────────────────────
+            # Run YOLO plate detection
+            # ──────────────────────────────
             cropped_plate, confidence = detect_plate(
-                model, frame, config
+                yolo_model,
+                frame,
+                config
             )
 
             # ── No plate found ─────────────
+            # keep detecting
             if cropped_plate is None:
                 continue
-
-            oi = encode_frame(cropped_plate)
 
             log.info(
                 f"Plate region detected — "
                 f"confidence: {confidence:.2f}"
             )
-            print("oi")
-
-            # ── Run OCR ────────────────────
-            from app.detector.ocr import extract_plate_text
-            plate_text = extract_plate_text(cropped_plate)
-
-            # ── Empty OCR result ───────────
-            if not plate_text:
-                log.warning(
-                    "OCR returned empty text — "
-                    "skipping frame"
-                )
-                continue
-
-            log.info(
-                f"OCR result : {plate_text} | "
-                f"confidence : {confidence:.2f}"
-            )
 
             # ──────────────────────────────
-            # Post confirm cooldown check
-            #
-            # after guard confirms plate
-            # ignore same plate for N seconds
-            # gives vehicle time to
-            # fully clear the gate
+            # Confidence flag
             # ──────────────────────────────
-            if plate_text == last_confirmed_plate:
-                elapsed = time.time() - last_confirmed_time
-                if elapsed < cooldown:
-                    log.debug(
-                        f"Cooldown active — "
-                        f"ignoring {plate_text} | "
-                        f"elapsed: {elapsed:.1f}s / "
-                        f"{cooldown}s"
-                    )
-                    continue    # skip — same vehicle
-                    # still clearing gate
-                else:
-                    # cooldown expired
-                    # same plate is a new vehicle
-                    log.info(
-                        f"Cooldown expired for "
-                        f"{plate_text} — "
-                        f"treating as new detection"
-                    )
-                    last_confirmed_plate = None
-
-            # ── Determine confidence flag ──
             low_confidence = (
                 confidence < config["confidence_thresh"]
             )
 
-            # ── Encode plate image ─────────
-            # base64 JPEG for WebSocket
-            plate_image_b64 = encode_frame(cropped_plate)
+            # ──────────────────────────────
+            # Encode plate image
+            # always encoded and sent
+            # guard sees image even if
+            # OCR fails
+            # ──────────────────────────────
+            plate_image_b64 = encode_frame(
+                cropped_plate
+            )
 
-            # ── Build result payload ───────
+            # ──────────────────────────────
+            # Run OCR via ocr.py
+            #
+            # extract_plate_text() handles:
+            #   preprocess
+            #   RapidOCR inference
+            #   text cleaning
+            #   error handling
+            #
+            # returns empty string if fails
+            # ──────────────────────────────
+            plate_text  = ""
+            ocr_failed  = False
+
+            if ocr_available:
+                plate_text = extract_plate_text(
+                    ocr_model,
+                    cropped_plate
+                )
+                # empty string means OCR
+                # could not read the plate
+                ocr_failed = (plate_text == "")
+
+                if ocr_failed:
+                    log.warning(
+                        "OCR could not extract text — "
+                        "guard will enter manually"
+                    )
+            else:
+                # OCR never loaded
+                # guard always enters manually
+                ocr_failed = True
+                log.debug(
+                    "OCR unavailable — "
+                    "sending image only"
+                )
+            # ──────────────────────────────
+            # Build result payload
+            #
+            # always sent to FastAPI
+            # regardless of OCR success
+            # guard handles manually
+            # if ocr_failed = True
+            # ──────────────────────────────
             result = {
-                "plate": plate_text,
-                "confidence": round(confidence, 4),
-                "low_confidence": low_confidence,
-                "plate_image": plate_image_b64,
-                "timestamp": time.time(),
+                "plate"          : plate_text,
+                "confidence"     : round(confidence, 4),
+                "low_confidence" : low_confidence,
+                "ocr_failed"     : ocr_failed,
+                "ocr_unavailable": not ocr_available,
+                "plate_image"    : plate_image_b64,
+                "timestamp"      : time.time(),
             }
 
-            # ── Send to FastAPI ────────────
+            # ──────────────────────────────
+            # Send result to FastAPI
+            # via result_queue
+            # ──────────────────────────────
             try:
-                result_queue.put(result, timeout=1.0)
+                result_queue.put(
+                    result,
+                    timeout=1.0
+                )
                 log.info(
                     f"Result sent — "
-                    f"plate: {plate_text} | "
-                    f"low_confidence: {low_confidence}"
+                    f"plate: '{plate_text}' | "
+                    f"ocr_failed: {ocr_failed} | "
+                    f"low_conf: {low_confidence}"
                 )
 
             except queue.Full:
@@ -434,8 +526,11 @@ def detector_process(
                 )
                 continue
 
-            except (OSError, EOFError, BrokenPipeError) as e:
-                # FastAPI process may have died mid get()
+            except (
+                OSError,
+                EOFError,
+                BrokenPipeError
+            ) as e:
                 log.error(
                     f"Result queue pipe error: {e}"
                 )
@@ -444,16 +539,11 @@ def detector_process(
 
             except Exception as e:
                 log.error(
-                    f"Result queue put error: {e}"
+                    f"Result queue error: {e}"
                 )
                 time.sleep(1.0)
                 continue
 
-            # ──────────────────────────────
-            # Store confirmed plate for
-            # cooldown tracking
-            # ──────────────────────────────
-            last_confirmed_plate = plate_text
 
             # ──────────────────────────────
             # Switch to PAUSED
@@ -464,28 +554,34 @@ def detector_process(
             report_status(
                 status_queue,
                 "PAUSED",
-                f"Plate detected: {plate_text} — "
-                f"waiting for guard confirmation"
+                "Plate detected — "
+                "waiting for guard confirmation"
             )
             log.info(
-                f"State → PAUSED | "
-                f"plate: {plate_text} | "
-                f"waiting for guard..."
+                "State → PAUSED | "
+                "waiting for guard..."
             )
+            
+            #########Resuming the signal.
+            time.sleep(5.0)
+            state = DetectorState.DETECTING
+            control_queue.put_nowait(ControlSignal.RESUME)
+            
 
     except KeyboardInterrupt:
-        log.info("Detector interrupted — shutting down")
+        log.info("Detector interrupted")
 
     except Exception as e:
-        # unexpected crash
-        # exit(1) so run.py retries
-        log.error(f"Detector unexpected error: {e}")
+        log.error(
+            f"Detector unexpected error: {e}"
+        )
         report_status(
             status_queue,
             "OFFLINE",
-            f"Detector crashed unexpectedly: {e}"
+            f"Detector crashed: {e}"
         )
-        sys.exit(1)
+        sys.exit(1)         # recoverable
+                            # run.py will retry
 
     finally:
         log.info("Detector process stopped")
