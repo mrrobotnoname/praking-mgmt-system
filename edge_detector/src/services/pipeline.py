@@ -18,7 +18,7 @@ async def processing_pipeline_loop(
     motion_shield = MotionShieldService()
     network = CloudNetworkDispatcher()
 
-    logging.info("-> Execution Pipeline Loop B started.")
+    logging.info("Detection is started. Chekcking the frame.")
 
     def preprocess_plate_for_ocr(crop_img):
         """Enhances license plate crops for OCR by upscaling, contrast boosting, and sharpening."""
