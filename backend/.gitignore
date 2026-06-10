@@ -1,5 +1,0 @@
-.venv
-__pycache__
-.env
-/best_openvino_model/
-backend.log

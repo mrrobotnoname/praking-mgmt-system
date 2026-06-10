@@ -1,2 +1,7 @@
+__pycache__
 /tests
-backend/backend.log
+/logs/*
+!.gitkeep
+/debug
+/edge_detector/.edge-venv
+model/
