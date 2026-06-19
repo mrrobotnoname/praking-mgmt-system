@@ -7,5 +7,5 @@ model/
 logs/
 !/logs/.gitkeep
 .env
-
 backend/.api-venv
+backend/app/parking-mgmt-system.db
