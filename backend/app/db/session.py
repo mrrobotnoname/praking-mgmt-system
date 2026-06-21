@@ -1,6 +1,7 @@
 
 from pathlib import Path
 from sqlmodel import Session,create_engine,SQLModel
+from app import models
 
 BASE_DIR = Path(__file__).resolve().parent.parent.parent
 DB_PATH = BASE_DIR/ "parking.db"

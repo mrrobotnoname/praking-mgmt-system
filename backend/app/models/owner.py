@@ -1,7 +1,8 @@
-from typing import Optional,List
+from __future__ import annotations
+
+from typing import Optional, List
 from datetime import datetime, timezone
-from sqlmodel import SQLModel,Field,Relationship
-from app.models.parking_log import ParkingLog
+from sqlmodel import SQLModel, Field, Relationship
 
 
 class Owner(SQLModel, table=True):

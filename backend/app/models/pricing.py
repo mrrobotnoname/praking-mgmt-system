@@ -1,6 +1,7 @@
+from __future__ import annotations
+
 from typing import Optional
 from sqlmodel import SQLModel, Field, Relationship
-from app.models.vehicle_type import VehicleType
 
 class Pricing(SQLModel, table=True):
     """
@@ -17,5 +18,5 @@ class Pricing(SQLModel, table=True):
     threshold_minutes: int = Field(default=180) 
 
     # Foreign Key linking to VehicleType (1-to-1 relationship)
-    vehicle_type_id: int = Field(foreign_key="vehicletype.id", unique=True)
+    vehicle_type_id: int = Field(foreign_key="vehicletype.vehicle_id", unique=True)
     vehicle_type: "VehicleType" = Relationship(back_populates="pricing")

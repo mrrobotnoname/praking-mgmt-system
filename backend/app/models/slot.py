@@ -1,5 +1,10 @@
 
+from __future__ import annotations
+
+from typing import Optional
+
 from sqlmodel import SQLModel, Field, Relationship
+
 
 
 class ParkingSlot(SQLModel, table=True):
@@ -10,8 +15,8 @@ class ParkingSlot(SQLModel, table=True):
     is_accessible: bool = Field(default=False)#for desable area 
     is_occupied: bool = Field(default=False)
 
-    vehicle_type_id:int= Field(foreign_key="vehicletype.id")
-    vehicle_type = Relationship(back_populates="slots")
+    vehicle_type_id: int = Field(foreign_key="vehicletype.vehicle_id")
+    vehicle_type: Optional["VehicleType"] = Relationship(back_populates="slots")
 
     @property
     def display_slot(self)->str:

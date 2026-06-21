@@ -1,7 +1,8 @@
-from typing import Optional,List
+from __future__ import annotations
+
+from typing import Optional, List
 from datetime import datetime, timezone
 from sqlmodel import SQLModel, Field, Relationship
-from app.models.owner import Owner
 
 
 class ParkingLog(SQLModel, table=True):
@@ -16,9 +17,9 @@ class ParkingLog(SQLModel, table=True):
     fee_charged: Optional[float] = Field(default=None)
 
     slot_id: int = Field(foreign_key="parkingslot.id")
-    vehicle_id: int = Field(foreign_key="vehicletype.id")
+    vehicle_id: int = Field(foreign_key="vehicletype.vehicle_id")
     
     owner_id: Optional[int] = Field(default=None, foreign_key="owner.id")
 
 
-    owner: Optional[Owner] = Relationship(back_populates="logs")
+    owner: Optional["Owner"] = Relationship(back_populates="logs")
