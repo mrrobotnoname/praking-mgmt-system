@@ -1,10 +1,11 @@
-from __future__ import annotations
 
-from typing import Optional, List
+
+from typing import Optional, List,TYPE_CHECKING
 from datetime import datetime, timezone
 from sqlmodel import SQLModel, Field, Relationship
 
-
+if TYPE_CHECKING:
+    from app.models.parking_log import ParkingLog
 class Owner(SQLModel, table=True):
     id: Optional[int] = Field(default=None, primary_key=True)
     full_name: str = Field(index=True)

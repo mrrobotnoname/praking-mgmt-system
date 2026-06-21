@@ -1,8 +1,11 @@
-from __future__ import annotations
 
-from typing import Optional, List
+
+from typing import Optional, TYPE_CHECKING
 from datetime import datetime, timezone
 from sqlmodel import SQLModel, Field, Relationship
+
+if TYPE_CHECKING:
+    from backend.app.models.owner import Owner
 
 
 class ParkingLog(SQLModel, table=True):

@@ -27,4 +27,5 @@ class GuardUpdate(BaseModel):
 
 
 class Vehicle(BaseModel):
+    vehicle_id:int | None = None
     vehicle_type:str | None = None

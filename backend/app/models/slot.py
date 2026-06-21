@@ -1,11 +1,13 @@
 
-from __future__ import annotations
 
-from typing import Optional
+from typing import Optional,TYPE_CHECKING
 
 from sqlmodel import SQLModel, Field, Relationship
 
 
+if TYPE_CHECKING:
+    from backend.app.models.vehicle_type import VehicleType
+    
 
 class ParkingSlot(SQLModel, table=True):
     id: int | None = Field(default=None, primary_key=True)

@@ -1,7 +1,9 @@
-from __future__ import annotations
 
-from typing import Optional
+from typing import Optional,TYPE_CHECKING
 from sqlmodel import SQLModel, Field, Relationship
+
+if TYPE_CHECKING:
+    from backend.app.models.vehicle_type import VehicleType
 
 class Pricing(SQLModel, table=True):
     """
@@ -19,4 +21,4 @@ class Pricing(SQLModel, table=True):
 
     # Foreign Key linking to VehicleType (1-to-1 relationship)
     vehicle_type_id: int = Field(foreign_key="vehicletype.vehicle_id", unique=True)
-    vehicle_type: "VehicleType" = Relationship(back_populates="pricing")
+    vehicle_type: Optional["VehicleType"] = Relationship(back_populates="pricing")
