@@ -1,42 +1,24 @@
-from typing import List, Optional
-
 from fastapi import APIRouter, Depends, HTTPException
 from sqlmodel import Session, select
 from sqlalchemy.exc import IntegrityError
 
-from pydantic import BaseModel
+from typing import List
+
 
 from app.routers.deps import isAdmin
 from app.db.session import get_session
-from app.models.user import User
 from app.core.security import validate_password, encryptPassword
+
+from app.models.user import User
+from app.models.vehicle_type import VehicleType
+from app.core.base import Guard,GuardRespond,GuardUpdate, Vehicle
+
+
 router = APIRouter(
     prefix="/api/v1/admin",
-    dependencies=[Depends(isAdmin)]
+    dependencies=[Depends(isAdmin)] 
 )
 
-# Guard Object
-
-
-class Guard(BaseModel):
-    username: str
-    password: str
-    name: str
-    phone_number: str
-
-
-class GuardRespond(BaseModel):
-    user_id: int
-    username: str
-    name: str
-    phone_number: str
-
-
-class GuardUpdate(BaseModel):
-    username: str | None = None
-    password: str | None = None
-    name: str | None = None
-    phone_number: str | None = None
 
 
 @router.get("/")
@@ -158,5 +140,49 @@ def editGuard(
     except:
         return "Somthing went wrong please try again"
 
+
+# ==================================================================================
+
+# ===================== Vehicle & Pricing Configuration ===================
+
+@router.get("/all-vehicle",response_model=List[Vehicle])
+def getVehicle(db:Session=Depends(get_session)):
+
+    vehicle= db.exec(select(VehicleType)).all()
+
+    return vehicle
+    
+
+@router.post("/add-vehicle")
+def addVehicle(data:Vehicle,db:Session=Depends(get_session)):
+    exist = db.exec(select(VehicleType)
+                    .where(VehicleType.vehicle_type == data.vehicle_type)).first()
+    
+    if exist:
+        raise HTTPException(
+            status_code=404,
+            detail="vehicle type alredy exist."
+        )
+    vehicle = VehicleType(vehicle_type=data.vehicle_type)
+    db.add(vehicle)
+    db.commit()
+
+    return{
+        "message": f"{data.vehicle_type} added to the system."
+    }
+@router.delete("/delete-vehicle/{vehicle_id}")
+def deleteVehicle(vehicle_id:int,db:Session=Depends(get_session)):
+    
+    vehicle = db.get(VehicleType,vehicle_id)
+    if vehicle is None:
+        raise HTTPException(
+            status_code=404,
+            details="Vehicle not found!"
+        )
+    db.delete(vehicle)
+    db.commit()
+    return {
+        "message": f"{vehicle.vehicle_type} was deleted."
+    }
 
 # ==================================================================================
