@@ -23,25 +23,20 @@ def get_current_user(
 
     try:
         payload =  jwt.decode(token,SECRETE_KEY,algorithms=ALGORITHEM)
-        username: str = payload.get("sub")
-        if username is None:
+        if payload.get("sub") is None or payload.get("role") is None:
             raise credentials_exception
+        return payload
     except jwt.PyJWTError:
         raise credentials_exception
     
-    user = db.exec(select(User).where(User.username == username)).first()
-    if user is None:
-        raise credentials_exception
-    
-    return user
 
-def get_current_admin(current_user: User = Depends(get_current_user)) -> User:
+def isAdmin(payload: dict = Depends(get_current_user)) -> User:
     """
     Takes the verified user and ensures their role is strictly 'admin'.
     """
-    if current_user.role != "admin":
+    if payload.get("role") != "admin":
         raise HTTPException(
             status_code=status.HTTP_403_FORBIDDEN,
             detail="Access denied. Administrator privileges required."
         )
-    return current_user
+    return payload
